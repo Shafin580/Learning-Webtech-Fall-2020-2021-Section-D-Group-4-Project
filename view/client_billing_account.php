@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E-Pocket Banking System - Client - Home</title>
+    <title>E-Pocket Banking System - Client - Client Billing Account</title>
 </head>
 <body>
     
@@ -60,13 +60,21 @@
                 
             </td>
             
-            <td align="right">
+            <td align="center">
                 
-                <p>Current Balance: 0 BDT</p>
-                <p>Current Status: Basic</p>
-                <p>Manager Assigned: Rabbi</p>
-                <p>Products Invested In: 0</p>
-                <p>Virtual Card ID: 123</p>
+                <form action="">
+                    
+                    Account Number: <input type="number" name="accountNo">
+                    <select name="accountName" >
+				<option value=""  selected >Bkash</option>
+				<option value="">DBBL</option>
+				<option value="">Nagad</option>
+			</select><br><br>
+                   <input type="submit" name="submit" value="Add"> 
+                    
+                </form>
+                
+                
                 
             </td>
             

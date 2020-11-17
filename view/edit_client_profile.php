@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E-Pocket Banking System - Client - Home</title>
+    <title>E-Pocket Banking System - Client - Client Edit Profile</title>
 </head>
 <body>
     
@@ -60,13 +60,18 @@
                 
             </td>
             
-            <td align="right">
+            <td align="center">
                 
-                <p>Current Balance: 0 BDT</p>
-                <p>Current Status: Basic</p>
-                <p>Manager Assigned: Rabbi</p>
-                <p>Products Invested In: 0</p>
-                <p>Virtual Card ID: 123</p>
+                <form action="">
+                    
+                    Username : <input type="text" name="username" value="Shafin"><br><br>
+                    Email : <input type="email" name="email" value="shafin@gmail.com"><br><br>
+                    Date of birth : <input type="date" name="date"><br><br>
+                    <input type="submit" name="submit" value="Update">
+                    
+                </form>
+                
+                
                 
             </td>
             

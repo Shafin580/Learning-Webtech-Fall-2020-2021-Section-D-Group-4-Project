@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E-Pocket Banking System - Client - Home</title>
+    <title>E-Pocket Banking System - Client - Client Profile</title>
 </head>
 <body>
     
@@ -60,13 +60,15 @@
                 
             </td>
             
-            <td align="right">
+            <td align="center">
                 
-                <p>Current Balance: 0 BDT</p>
-                <p>Current Status: Basic</p>
-                <p>Manager Assigned: Rabbi</p>
-                <p>Products Invested In: 0</p>
-                <p>Virtual Card ID: 123</p>
+                <p>Name: Shafin Ahmed</p>
+                <p>Username: Shafin</p>
+                <p>Email: shafin@gmail.com</p>
+                <p>Gender: Male</p>
+                <p>Date of Birth: 12/09/1997</p>
+                
+                
                 
             </td>
             
