@@ -19,7 +19,7 @@
 
         <tr>
 
-            <td><a href="admin_home.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="320px"></a></td>
+        <td><a href="admin_home.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="320px"></a></td>
             <td align="right"><a href="../php/logout.php">
                     Logout
                 </a>&nbsp;&nbsp;
@@ -29,14 +29,13 @@
 
         </tr>
 
-    </table>
-    <br><br><br>
+    </table><br><br><br>
     
     <center>
         
         <u><h1>E-Pocket Banking System</h1></u>
         
-        <table cellspacing="0" border="1"width="800px" height="350px">
+        <table cellspacing="0" border="1" width="1200px" height="350px">
         
         <tr>
             
@@ -52,23 +51,38 @@
                             <li><a href="admin_check_clientInfo.php">Check Client info</a></li>
                             <li><a href="admin_limit_voucher.php">Limit Voucher</a></li>
                             <li><a href="admin_create_notice.php">Create Notice</a></li>
+
                             
                         </ul>
+                    <td> <p>Current running voucher no:10</p>
+                    <table border="1" width="100%">
+                                
+                                <tr><th colspan="6">New voucher</th></tr>
+                                <th>New voucher</th>
+                                <th>Date </th>
+                                <th>Start time</th>
+                                <th>End time</th>
+                                <th>Publish</th>
+
+                                
                     
+                                    <tr>
+                                
+                                        <td><input type="data" name="update" value=""></td>
+                                        <td><input type="date" name="date"></td>
+                                        <td><input type="time" name="date" value=""></td>
+                                        <td><input type="time" name="start" value=""></td>
+                                        <td><input type="Button" name="end" value="Publish"></td>
+                                        
+                                    </tr>
+                    </table>
                 </td>
             
-                <td align="center">
-                    
-                    <p>Current manager: 10</p>
-                    <p>Current Client: 200</p>
-                    <p>Current Co-client: 50</p>
-                    <p>Active package: 10</p>
-                    <p>Active voucher: 10</p>
-                    
-                    
-                </td>
+            
+
             
         </tr>
+        
         
     </table>
         
