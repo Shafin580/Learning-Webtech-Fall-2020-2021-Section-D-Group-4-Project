@@ -40,7 +40,7 @@
             <h1>E-Pocket Banking System</h1>
         </u>
 
-        <table border="1" width="40%">
+        <table border="1" width="45%">
 
             <tr>
 
@@ -57,7 +57,7 @@
                         <li><a href="client_withdraw_deposit.php">Withdraw/Deposit</a></li>
                         <li><a href="client_transaction.php">Transaction History</a></li>
                         <li><a href="client_flexiload.php">Flexiload</a></li>
-                        <li><a href="client_offers">Offers</a></li>
+                        <li><a href="client_offers.php">Offers</a></li>
                         <li><a href="client_change_password.php">Change Password</a></li>
 
                     </ul>

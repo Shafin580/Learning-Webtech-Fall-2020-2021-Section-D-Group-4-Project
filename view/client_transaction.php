@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E-Pocket Banking System - Client - Client Billing Account</title>
+    <title>E-Pocket Banking System - Client - Client Transaction History</title>
 </head>
 <body>
     
@@ -36,7 +36,7 @@
         
         <u><h1>E-Pocket Banking System</h1></u>
         
-        <table border="1" width="40%">
+        <table border="1" width="50%">
         
         <tr>
             
@@ -64,15 +64,35 @@
                 
                 <form action="">
                     
-                    <u><h3>Add Bank/Mobile Bank Accounts</h3></u>
-                    
-                    Account Number: <input type="number" name="accountNo">
-                    <select name="accountName" >
-				<option value=""  selected >Bkash</option>
-				<option value="">DBBL</option>
-				<option value="">Nagad</option>
-			</select><br><br>
-                   <input type="submit" name="submit" value="Add"> 
+                    <table border="1" width="100%">
+                        
+                        <tr><th colspan="6">Transaction History</th></tr>
+                        <tr><th>Order No</th>
+                        <th>Product</th>
+                        <th>Invested</th>
+                        <th>Transaction</th>
+                        <th>Amount</th>
+                        <th>Date</th></tr>
+                        
+                        <tr>
+                            <td>01</td>
+                            <td>none</td>
+                            <td>Biscuit(100)</td>
+                            <td>none</td>
+                            <td>300</td>
+                            <td>12/09/2020</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>02</td>
+                            <td>none</td>
+                            <td>none</td>
+                            <td>Withdraw(Bkash)</td>
+                            <td>300</td>
+                            <td>12/09/2020</td>
+                        </tr>
+                        
+                    </table> 
                     
                 </form>
                 

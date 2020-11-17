@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E-Pocket Banking System - Client - Client Billing Account</title>
+    <title>E-Pocket Banking System - Client - Client Change Password</title>
 </head>
 <body>
     
@@ -64,15 +64,12 @@
                 
                 <form action="">
                     
-                    <u><h3>Add Bank/Mobile Bank Accounts</h3></u>
+                    <u><h3>Change Password</h3></u>
                     
-                    Account Number: <input type="number" name="accountNo">
-                    <select name="accountName" >
-				<option value=""  selected >Bkash</option>
-				<option value="">DBBL</option>
-				<option value="">Nagad</option>
-			</select><br><br>
-                   <input type="submit" name="submit" value="Add"> 
+                    Current Password: <input type="password" name="currentPassword"><br><br>
+                    New Password: <input type="password" name="newPassword"><br><br>
+                    Re-type New Password: <input type="password" name="re-typeNewPassword"><br><br>
+                    <input type="submit" name="updatePassword" value="Update">
                     
                 </form>
                 

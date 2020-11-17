@@ -13,7 +13,7 @@ if(isset($_REQUEST['submit'])){
         
         if($userInfo[0]==$_REQUEST['id'] and $userInfo[1]==$_REQUEST['password'] and $userInfo[4]=="Client"){
             
-            setcookie("client", "flag", time()+100, '/');
+            setcookie("client", "flag", time()+600, '/');
             header('location: ../view/client_home.php');
             $count = $count + 1;
             break;

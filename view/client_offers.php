@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E-Pocket Banking System - Client - Client Products</title>
+    <title>E-Pocket Banking System - Client - Client Offers</title>
 </head>
 <body>
     
@@ -53,7 +53,7 @@
                     <li><a href="client_withdraw_deposit.php">Withdraw/Deposit</a></li>
                     <li><a href="client_transaction.php">Transaction History</a></li>
                     <li><a href="client_flexiload.php">Flexiload</a></li>
-                    <li><a href="client_offers.php">Offers</a></li>
+                    <li><a href="client_offers">Offers</a></li>
                     <li><a href="client_change_password.php">Change Password</a></li>
                     
                 </ul>
@@ -72,8 +72,10 @@
                             
                             <td>
                                 
-                                <h3>Product: Biscuit</h3>
-                                <p>Price: 3TK/Share</p>
+                                <h3>Product: Iphone</h3>
+                                <p>Price: 100000 BDT</p>
+                                <p>Discount: 10%</p>
+                                <p>Promotion from: Pickaboo</p>
                                 Buy : <input type="number" name="product_01_amount" min="0" max="100"> Share <br> <br>
                                 <input type="submit" name="buy_1" value="Buy">
                                 
@@ -92,8 +94,10 @@
                             
                             <td>
                                 
-                                <h3>Product: Pen</h3>
-                                <p>Price: 2TK/Share</p>
+                                <h3>Product: Toshiba HDD 1TB</h3>
+                                <p>Price: 4000 BDT</p>
+                                <p>Discount: 15%</p>
+                                <p>Promotion from: Daraz</p>
                                 Buy : <input type="number" name="product_02_amount" min="0" max="100"> Share <br> <br>
                                 <input type="submit" name="buy_2" value="Buy">
                                 
@@ -112,8 +116,10 @@
                             
                             <td>
                                 
-                                <h3>Product: Eraser</h3>
-                                <p>Price: 1.5TK/Share</p>
+                                <h3>Product: Trancend Pendrive 64GB</h3>
+                                <p>Price: 2500 BDT</p>
+                                <p>Discount: 20%</p>
+                                <p>Promotion from: Pickaboo</p>
                                 Buy : <input type="number" name="product_03_amount" min="0" max="100"> Share <br> <br>
                                 <input type="submit" name="buy_3" value="Buy">
                                 

@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E-Pocket Banking System - Client - Client Billing Account</title>
+    <title>E-Pocket Banking System - Client - Client Flexiload</title>
 </head>
 <body>
     
@@ -64,16 +64,11 @@
                 
                 <form action="">
                     
-                    <u><h3>Add Bank/Mobile Bank Accounts</h3></u>
+                    <u><h3>Flexi-Load</h3></u>
                     
-                    Account Number: <input type="number" name="accountNo">
-                    <select name="accountName" >
-				<option value=""  selected >Bkash</option>
-				<option value="">DBBL</option>
-				<option value="">Nagad</option>
-			</select><br><br>
-                   <input type="submit" name="submit" value="Add"> 
-                    
+                    Phone Number : <input type="number" name="phoneNumber"><br><br>
+                    Amount : <input type="number" name="flexiAmount" min="50" max="2000"> BDT <br><br>
+                    <input type="submit" name="flexiload" value="Proceed">
                 </form>
                 
                 
