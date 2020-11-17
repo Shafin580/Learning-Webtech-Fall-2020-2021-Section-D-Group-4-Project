@@ -55,14 +55,18 @@
                 
             </td>
             
-            <td align="right">
+            <td align="center">
                 
                 
                
-                <p>Admin Assigned: Mashrur</p>
-                <p>client no: 3</p>
-                <p>co-client: 3</p>
-                
+                 <form action="">
+                    
+                    <u><h3>Transaction</h3></u>
+                    
+                    Account Id : <input type="number" name="accountNumber"><br><br>
+                    Transaction No : <input type="number" name="transactionNumber"><br><br>
+                    <input type="submit" name="transaction" value="solve">
+                </form>
                 
             </td>
             

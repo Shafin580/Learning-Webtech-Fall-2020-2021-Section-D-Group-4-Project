@@ -55,14 +55,18 @@
                 
             </td>
             
-            <td align="right">
+            <td align="center">
                 
                 
                
-                <p>Admin Assigned: Mashrur</p>
-                <p>client no: 3</p>
-                <p>co-client: 3</p>
-                
+                 <form action="">
+                    
+                    <u><h3>Voucher</h3></u>
+                    
+                    Account Id : <input type="number" name="accountNumber"><br><br>
+                    Amount : <input type="number" name="voucherAmount" min="50" max="3000"> BDT <br><br>
+                    <input type="submit" name="voucher" value="Proceed">
+                </form>
                 
             </td>
             

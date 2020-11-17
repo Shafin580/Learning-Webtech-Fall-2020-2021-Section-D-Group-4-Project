@@ -55,13 +55,12 @@
                 
             </td>
             
-            <td align="right">
+            <td align="center">
                 
                 
-               
-                <p>Admin Assigned: Mashrur</p>
-                <p>client no: 3</p>
-                <p>co-client: 3</p>
+               <h4>Client list</h4>
+                <p>Shafin Ahmed</p>
+               <p>Mashrur Hossain</p>
                 
                 
             </td>

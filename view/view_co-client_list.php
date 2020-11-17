@@ -55,13 +55,12 @@
                 
             </td>
             
-            <td align="right">
+            <td align="center">
                 
                 
+               <h4>Co-client list </h4>
+                <p>Shuvo Alam</p>
                
-                <p>Admin Assigned: Mashrur</p>
-                <p>client no: 3</p>
-                <p>co-client: 3</p>
                 
                 
             </td>

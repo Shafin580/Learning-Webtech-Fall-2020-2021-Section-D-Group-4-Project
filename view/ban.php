@@ -55,13 +55,31 @@
                 
             </td>
             
-            <td align="right">
+            <td align="center">
                 
-                
-               
-                <p>Admin Assigned: Mashrur</p>
-                <p>client no: 3</p>
-                <p>co-client: 3</p>
+                <form action="">
+
+                    <table border="1" width="100%">
+                        <tr>
+                            <td>
+                                  <u><h4>Ban client  Accounts</h4></u>
+                                  Account Id: <input type="number" name="accountNo">
+                                  <input type="submit" name="ban" value="ban"> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                  <u><h4>Ban co-client  Accounts</h4></u>
+                                  Account Id: <input type="number" name="accountNo">
+                                  <input type="submit" name="ban" value="ban"> 
+                            </td>
+                        </tr>
+
+
+                       
+
+                    </table>
+               </form>
                 
                 
             </td>
