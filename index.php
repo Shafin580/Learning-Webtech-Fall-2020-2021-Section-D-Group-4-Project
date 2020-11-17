@@ -17,7 +17,7 @@
             <td align="right"><a href="view/registration.php">
                     Registration
                 </a>&nbsp;&nbsp;
-                <a href="view/about.html">
+                <a href="view/about.html"  target="_blank">
                     About
                 </a></td>
 

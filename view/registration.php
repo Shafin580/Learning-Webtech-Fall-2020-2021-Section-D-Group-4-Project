@@ -17,7 +17,7 @@
             <td align="right"><a href="../index.php">
                     Login
                 </a>&nbsp;&nbsp;
-                <a href="about.html">
+                <a href="about.html" target="_blank">
                     About
                 </a></td>
 
