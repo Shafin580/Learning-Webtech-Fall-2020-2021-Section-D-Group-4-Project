@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta>
-    <title>E-Pocket Banking System - Co-Client - Home</title>
+    <title>E-Pocket Banking System - Co-Client - Promotional Details</title>
 </head>
 <body>
     
@@ -51,7 +51,6 @@
                     <li><a href="stop_promotion.php">Stop Promotion</a></li>
                     
                     <li><a href="direct_buy.php">Direct Buy</a></li>
-                    
                     <li><a href="hide_promotion.php">Hide a Promotion</a></li>
                     
                     <li><a href="promotional_notice.php">Promotional Notice</a></li>

@@ -1,7 +1,7 @@
 <?php
-	if(!isset($_COOKIE['co-client'])){
-		header('location: ../index.php');
-	}
+    if(!isset($_COOKIE['co-client'])){
+        header('location: ../index.php');
+    }
 
     
 
@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta>
-    <title>E-Pocket Banking System - Co-Client - Home</title>
+    <title>E-Pocket Banking System - Co-Client - Direct Buy</title>
 </head>
 <body>
     
@@ -51,9 +51,8 @@
                     <li><a href="stop_promotion.php">Stop Promotion</a></li>
                     
                     <li><a href="direct_buy.php">Direct Buy</a></li>
-                    
                     <li><a href="hide_promotion.php">Hide a Promotion</a></li>
-                    
+                   
                     <li><a href="promotional_notice.php">Promotional Notice</a></li>
                     <li><a href="time_limit.php">Set a Time Limit</a></li>
 
@@ -64,13 +63,32 @@
             
             <td align="center">
                 
-                <p>Total Promotion :5</p>
-                <p>Active Promotions: 2</p>
-                <p>Hided Promotions : 1</p>
-                <p>Highlight Products : 0</p>
-                <p>Deleted Promotions : 2</p>
-                
-            </td>
+                <form action="">
+                    
+                   
+
+                        <td>        
+                                <h3>Product: Macbook Pro 13'' 256GB</h3>
+                                <p>Price: 135000 BDT</p>
+                                
+                                Direct buy from:
+                                <select name="product" >
+                <option value="" selected>Pickaboo</option>    
+                <option value=""   >Daraz</option>
+                <option value="">Evaly</option>
+                <br><br>
+                <br><br>
+
+                 </select>
+               
+                         Quantity : <input type="number" name="number">  <br><br>
+                                <input type="submit" name="submit" value="Buy">              
+
+                         </td>
+                                
+            <input type="submit" name="submit" value="Add"> 
+                    
+                </form>
             
         </tr>
         

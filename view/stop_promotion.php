@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta>
-    <title>E-Pocket Banking System - Co-Client - Home</title>
+    <title>E-Pocket Banking System - Co-Client - Stop Promotion</title>
 </head>
 <body>
     
@@ -20,7 +20,7 @@
 
         <tr>
 
-            <td><a href="co-client_home.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="320px"></a></td>
+            <td><a href="co-client_home.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="420px"></a></td>
             <td align="right"><a href="../php/logout.php">
                     Logout
                 </a>&nbsp;&nbsp;
@@ -49,11 +49,10 @@
                     <li><a href="set_or_delete_product.php">Set or Delete Product</a></li>
                     <li><a href="set_number.php">Set The Number of product</a></li>
                     <li><a href="stop_promotion.php">Stop Promotion</a></li>
-                    
+                  
                     <li><a href="direct_buy.php">Direct Buy</a></li>
-                    
                     <li><a href="hide_promotion.php">Hide a Promotion</a></li>
-                    
+                  
                     <li><a href="promotional_notice.php">Promotional Notice</a></li>
                     <li><a href="time_limit.php">Set a Time Limit</a></li>
 
@@ -64,13 +63,25 @@
             
             <td align="center">
                 
-                <p>Total Promotion :5</p>
-                <p>Active Promotions: 2</p>
-                <p>Hided Promotions : 1</p>
-                <p>Highlight Products : 0</p>
-                <p>Deleted Promotions : 2</p>
+                <form action="">
+                    
+                    <u><h3>Stop Promotion</h3></u>
+
+                    Reason to Stop: <input   type="text" name="text">
+                  <br></br>
+
+                    <select name="Promotion" >
+                <option value="" selected>Promotion No: 1</option>    
+                <option value=""   >Promotion No: 2</option>
+                <option value="">Promotion No: 3</option>
+                <br><br>
+                <br><br>
+                <br><br>
                 
-            </td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   <input type="submit" name="submit" value="Apply"> 
+                    
+                </form>
             
         </tr>
         

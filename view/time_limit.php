@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta>
-    <title>E-Pocket Banking System - Co-Client - Home</title>
+    <title>E-Pocket Banking System - Co-Client - Time Limit</title>
 </head>
 <body>
     
@@ -51,9 +51,8 @@
                     <li><a href="stop_promotion.php">Stop Promotion</a></li>
                     
                     <li><a href="direct_buy.php">Direct Buy</a></li>
-                    
                     <li><a href="hide_promotion.php">Hide a Promotion</a></li>
-                    
+                   
                     <li><a href="promotional_notice.php">Promotional Notice</a></li>
                     <li><a href="time_limit.php">Set a Time Limit</a></li>
 
@@ -64,13 +63,27 @@
             
             <td align="center">
                 
-                <p>Total Promotion :5</p>
-                <p>Active Promotions: 2</p>
-                <p>Hided Promotions : 1</p>
-                <p>Highlight Products : 0</p>
-                <p>Deleted Promotions : 2</p>
-                
-            </td>
+                <form action="">
+                    
+                    <u><h3>Set Time Limit</h3></u>
+                    Start :<input type="Time" name="" >
+
+                <select name="Time" >
+                <option value="" selected>PM</option>    
+                <option value=""   >AM</option>
+            </select>
+                <br><br>
+                     Stop :<input type="Time" name="" >
+                <select name="Time" >
+                <option value="" selected>PM</option>    
+                <option value=""   >AM</option>
+            </select>
+                     <br><br>
+
+            
+                   <input type="submit" name="submit" value="Apply"> 
+                    
+                </form>
             
         </tr>
         
