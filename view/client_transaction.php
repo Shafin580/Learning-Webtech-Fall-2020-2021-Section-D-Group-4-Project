@@ -67,7 +67,7 @@
                     <table border="1" width="100%">
                         
                         <tr><th colspan="6">Transaction History</th></tr>
-                        <tr><th>Order No</th>
+                        <tr><th>Transaction No</th>
                         <th>Product</th>
                         <th>Invested</th>
                         <th>Transaction</th>
