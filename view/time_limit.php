@@ -46,7 +46,7 @@
                 <ul>
                     
                     <li><a href="promotion_details.php">All Promotions Details</a></li>
-                    <li><a href="set_or_delete_product.php">Set or Delete Product</a></li>
+                    <li><a href="set_product.php">Set or Delete Product</a></li>
                     <li><a href="set_number.php">Set The Number of product</a></li>
                     <li><a href="stop_promotion.php">Stop Promotion</a></li>
                     
@@ -66,18 +66,26 @@
                 <form action="">
                     
                     <u><h3>Set Time Limit</h3></u>
-                    Start :<input type="Time" name="" >
+
+                    <select name="Promotion" >
+                <option value="" selected>Promotion No: 1</option>    
+                <option value=""   >Promotion No: 2</option>
+                <option value="">Promotion No: 3</option>
+                </select>
+                <br><br>
+
+                Start :<input type="Time" name="" >
 
                 <select name="Time" >
                 <option value="" selected>PM</option>    
                 <option value=""   >AM</option>
-            </select>
+                </select>
                 <br><br>
                      Stop :<input type="Time" name="" >
                 <select name="Time" >
                 <option value="" selected>PM</option>    
                 <option value=""   >AM</option>
-            </select>
+                </select>
                      <br><br>
 
             
