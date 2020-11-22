@@ -18,7 +18,7 @@
 
         <tr>
 
-            <td><a href="manager_home.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="320px"></a></td>
+            <td><a href="client_home.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="320px"></a></td>
             <td align="right"><a href="../php/logout.php">
                     Logout
                 </a>&nbsp;&nbsp;
@@ -49,6 +49,8 @@
                     <li><a href="ban.php">mark for ban</a></li>
                     <li><a href="transaction.php">solve transaction</a></li>
                     <li><a href="voucher.php">Voucher</a></li>
+                    <li><a href="manager_bonous.php">Bonous</a></li>
+                    <li><a href="manager_stopPromotion.php">Stop Promotion</a></li>
                     
                     
                 </ul>

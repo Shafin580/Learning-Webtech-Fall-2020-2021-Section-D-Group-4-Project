@@ -57,14 +57,18 @@
                 
             </td>
             
-            <td align="right">
+            <td align="center">
                 
                 
                
-                <p>Admin Assigned: Mashrur</p>
-                <p>client no: 3</p>
-                <p>co-client: 3</p>
-                
+                 <form action="">
+                    
+                    <u><h3>Stop Promotion!!</h3></u>
+                    
+                    Account Id : <input type="number" name="accountNumber"><br><br>
+                    promotion Name : <input type="text" name="stopPromotion" > <br><br>
+                    <input type="submit" name="stopPromotion" value="Stop">
+                </form>
                 
             </td>
             
