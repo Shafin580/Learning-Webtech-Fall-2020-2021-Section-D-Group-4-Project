@@ -95,6 +95,14 @@
         if($_REQUEST['msg'] == 'registration_completed'){
 			echo "Registration Completed!";
 		}
+        
+        if($_REQUEST['msg'] == 'invalid_name'){
+			echo "Invalid Name!";
+		}
+        
+        if($_REQUEST['msg'] == 'invalid_username'){
+			echo "Invalid Username";
+		}
 
 		
 	}

@@ -42,18 +42,19 @@
             <td valign="top" width="200px">
                 
                 <h3>Welcome, Mashrur</h3>
-                <ul>
-                    
-                    <li><a href="admin_home.php">Home</a></li>
-                    <li><a href="admin_set_manager.php">Set Manager</a></li>
-                    <li><a href="admin_set_client.php">Set Client</a></li>
-                    <li><a href="admin_edit_clientInfo.php">Edit Client info</a></li>
-                    <li><a href="admin_check_clientInfo.php">Check Client info</a></li>
-                    <li><a href="admin_limit_voucher.php">Limit Voucher</a></li>
-                    <li><a href="admin_create_notice.php">Create Notice</a></li>
-
-                    
-                </ul>
+                
+                        <ul>
+                            
+                            <li><a href="admin_home.php">Home</a></li>
+                            <li><a href="admin_set_manager.php">Set Manager</a></li>
+                            <li><a href="admin_set_client.php">Set Client</a></li>
+                            <li><a href="admin_edit_clientInfo.php">Edit Client info</a></li>
+                            <li><a href="admin_upgrade_package.php">Upgrade Package</a></li>
+                            <li><a href="admin_check_clientInfo.php">Check Client info</a></li>
+                            <li><a href="admin_limit_voucher.php">Limit Voucher</a></li>
+                            <li><a href="admin_create_notice.php">Create Notice</a></li>
+                            
+                        </ul>
                 
             </td>
             

@@ -6,12 +6,41 @@ if(isset($_REQUEST['submit'])){
         
         if($_REQUEST['password']==$_REQUEST['confirmPassword']){
             
-            $myfile = fopen('../assets/userInfo.txt', 'a');
+            $test = explode(" ", $_REQUEST['name']);
+            if(count($test) >= 2){
+                
+                $pattern = array('<', ',', '>', '/', '?', '"', "'", ';', ':', ']', '[', '|', '}', '{', '=', '+',
+                            '_', ')', '(', '*', '&', '^', '%', '$', '#', '@', '!', '`', '~', '0', '1', '2', '3', 
+                            '4', '5', '6', '7', '8', '9',);
+            
+            for($i = 0; $i < count($pattern); $i++){
+                
+                if(strpos($_REQUEST['name'], $pattern[$i])==true){
+                    header('location: ../view/registration.php?msg=invalid_name');
+                    break;
+                }
+                
+            }
+              
+                if(strpos($_REQUEST['username'], " ")){
+                    header('location: ../view/registration.php?msg=invalid_username');
+                }
+                
+                else{
+                    
+                    $myfile = fopen('../assets/userInfo.txt', 'a');
 	$data = $_REQUEST['id']."|".$_REQUEST['password']."|".$_REQUEST['name']."|".$_REQUEST['username']."|".$_REQUEST['userRadio']."|".
         $_REQUEST['genderRadio']."|".$_REQUEST['email']."|".$_REQUEST['dateofBirth']."\n";
 	fwrite($myfile, $data);
 	fclose($myfile);
             header('location: ../view/registration.php?msg=registration_completed');
+                    
+                }
+                
+            }
+            else{header('location: ../view/registration.php?msg=invalid_name');}
+            
+            
         }
         
         else{

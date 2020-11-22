@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E-Pocket Banking System - Admin - Home</title>
+    <title>E-Pocket Banking System - Admin - Package</title>
 </head>
 <body>
     
@@ -58,50 +58,49 @@
                 
             </td>
             
-            <td align="center">
+            
+            <td>
                 
-                <form action="">
+          
                     
                     <table border="1" width="100%">
                         
-                        <tr><th colspan="6">Edit Client info</th></tr>
-                        <tr><th>Client ID</th>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Date of Birth</th>
-                        <th>Gender</th></tr>
-                        
-                        
-                        <tr>
-                            <td>111</td>
-                            <td><input type="data" name="Shafin Ahmed" value="Shafin Ahmed"></td>
-                            <td><input type="data" name="Shafin" value="Shafin"></td>
-                            <td><input type="data" name="shafinahmed580@gmail.com" value="shafinahmed580@gmail.com"></td>
-                            <td><input type="data" name="2020-11-10" value="2020-11-10"></td>
-                            <td><input type="data" name="Male" value="Male"></td>
-                        </tr>
-                        
-                        <tr>
-                        <td>156</td>
-                            <td><input type="data" name="Alamin Talukdar" value="Alamin Talukdar"></td>
-                            <td><input type="data" name="Talukdar" value="Talukdar"></td>
-                            <td><input type="data" name="talukder@gmail.com" value="talukder@gmail.com"></td>
-                            <td><input type="data" name="2020-11-10" value="2020-11-10"></td>
-                            <td><input type="data" name="Male" value="Male"></td>
-                        </tr>
-                        
-                    </table> <br> <br> <br>
-                    <input type="button" name="update" value="Update">
-        <input type="button" name="delete" value="Delete">
-                    
-                </form>
+                        <tr><th colspan="6">Notice</th></tr>
+                        <tr><th>Package Name</th>
+                        <th>Duration </th>
+                        <th>Price</th>
+                        <th colspan="2">Edit</th>
+    
 
-                
-                
+                        <tr>
+                            <td>Basic</td>
+                            <td><input type="data" name="update" value="3 months"></td>
+                            <td><input type="data" name="update" value="300 BDT"></td>
+                            <td><input type="button" name="update" value="Update"></td>
+                            <td> <input type="button" name="delete" value="Delete"></td>
+                        </tr>
+                        
+                        <tr>
+                        <td>Pro</td>
+                        <td><input type="data" name="update" value="7 months"></td>
+                            <td><input type="data" name="update" value="500 BDT"></td>
+                            <td><input type="button" name="update" value="Update"></td>
+                            <td> <input type="button" name="delete" value="Delete"></td>
+                            
+                        </tr>
+
+                        <td>Ultimate</td>
+                        <td><input type="data" name="update" value="3 months"></td>
+                            <td><input type="data" name="update" value="700 BDT"></td>
+                            <td><input type="button" name="update" value="Update"></td>
+                            <td> <input type="button" name="delete" value="Delete"></td>
+                        
+                    </table> 
+                    
+                   
                 
             </td>
-            
+
             
         </tr>
         
