@@ -3,3 +3,4 @@
 123|159|Rabbi|Rabbi-int|Manager|Male|rabbi@gmail.com|2020-11-10
 147|149|Mashrur|Mashrur-int|Admin|Male|mashrur@gmail.com|2020-11-02
 156|123|Talukder|Talukder-code|Co-Client|Male|talukder@gmail.com|2020-11-10
+163|123456789|Shafin Ahmed|shafin1997|Client|Male|shafin@gmail.com|2020-11-04
