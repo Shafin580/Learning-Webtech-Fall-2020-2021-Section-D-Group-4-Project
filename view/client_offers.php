@@ -1,5 +1,6 @@
 <?php
-	if(!isset($_COOKIE['client'])){
+	session_start();
+	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
 
@@ -42,7 +43,7 @@
             
             <td>
                 
-                <h3>Welcome, Shafin</h3>
+                <h3>Welcome, <?=$_SESSION['username']?></h3>
                 <ul>
                     
                     <li><a href="view_client_profile.php">View Profile</a></li>
@@ -53,7 +54,7 @@
                     <li><a href="client_withdraw_deposit.php">Withdraw/Deposit</a></li>
                     <li><a href="client_transaction.php">Transaction History</a></li>
                     <li><a href="client_flexiload.php">Flexiload</a></li>
-                    <li><a href="client_offers">Offers</a></li>
+                    <li><a href="client_offers.php">Offers</a></li>
                     <li><a href="client_change_password.php">Change Password</a></li>
                     
                 </ul>

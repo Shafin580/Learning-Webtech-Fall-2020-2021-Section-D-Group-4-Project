@@ -1,9 +1,9 @@
 <?php
-	if(!isset($_COOKIE['client'])){
+	session_start();
+	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
 
-    
 
 ?>
 
@@ -42,7 +42,7 @@
             
             <td>
                 
-                <h3>Welcome, Shafin</h3>
+                <h3>Welcome, <?=$_SESSION['username']?></h3>
                 <ul>
                     
                     <li><a href="view_client_profile.php">View Profile</a></li>
@@ -62,7 +62,7 @@
             
             <td align="center">
                 
-                <form action="">
+                <form action="../php/client_change_password.php" method="post">
                     
                     <u><h3>Change Password</h3></u>
                     

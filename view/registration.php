@@ -43,7 +43,7 @@
 
                             <legend>Registration</legend>
 
-                            ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="tel" name="id" pattern="[0-9]{3}" placeholder="Enter only 3 digit number. Example: 123"><br><br>
+                            
                             Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="name"><br><br>
                             Username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="username"><br><br>
                             Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="email" name="email" placeholder="example@gmail.com"><br><br>
@@ -102,6 +102,14 @@
         
         if($_REQUEST['msg'] == 'invalid_username'){
 			echo "Invalid Username";
+		}
+        
+        if($_REQUEST['msg'] == 'registration_failed'){
+			echo "Registration Failed";
+		}
+        
+        if($_REQUEST['msg'] == 'username_taken'){
+			echo "Username Taken!";
 		}
 
 		

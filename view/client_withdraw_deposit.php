@@ -1,9 +1,10 @@
 <?php
-	if(!isset($_COOKIE['client'])){
+	session_start();
+	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
 
-    
+    require_once('../models/clientService.php');
 
 ?>
 
@@ -46,7 +47,7 @@
 
                 <td>
 
-                    <h3>Welcome, Shafin</h3>
+                    <h3>Welcome, <?=$_SESSION['username']?></h3>
                     <ul>
 
                         <li><a href="view_client_profile.php">View Profile</a></li>
@@ -66,7 +67,7 @@
 
                 <td align="center">
 
-                    <form action="">
+                    <form action="../php/client_withdraw_deposit.php" method="post">
 
 
 
@@ -85,9 +86,7 @@
                                         <td>
 
                                             Withdraw To: <select name="accountName">
-                                                <option value="Bkash" selected>Bkash</option>
-                                                <option value="DBBL">DBBL</option>
-                                                <option value="Nagad">Nagad</option>
+                                                <?=getBillingAccount($_SESSION['username'])?>
                                             </select><br><br>
                                             Amount: <input type="number" name="withdraw_amount" min="500" max="50000"> <br> <br>
                                             
@@ -111,9 +110,7 @@
                                         <td>
 
                                             Deposit From: <select name="accountName">
-                                                <option value="Bkash" selected>Bkash</option>
-                                                <option value="DBBl">DBBL</option>
-                                                <option value="Nagad">Nagad</option>
+                                                <?=getBillingAccount($_SESSION['username'])?>
                                             </select><br><br>
                                             Amount: <input type="number" name="deposit_amount" min="500" max="50000"> <br> <br>
                                             

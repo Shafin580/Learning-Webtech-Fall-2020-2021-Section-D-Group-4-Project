@@ -1,7 +1,11 @@
 <?php
-	if(!isset($_COOKIE['client'])){
+	session_start();
+	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
+
+    require_once('../models/clientService.php');
+    $userInformation = getUserInformation($_SESSION['username']);
 
     
 
@@ -42,7 +46,7 @@
             
             <td>
                 
-                <h3>Welcome, Shafin</h3>
+                <h3>Welcome, <?=$userInformation[0]['c_username']?></h3>
                 <ul>
                     
                     <li><a href="view_client_profile.php">View Profile</a></li>
@@ -62,11 +66,11 @@
             
             <td align="center">
                 
-                <p>Current Balance: 0 BDT</p>
-                <p>Current Status: Basic</p>
-                <p>Manager Assigned: Rabbi</p>
-                <p>Products Invested In: 0</p>
-                <p>Virtual Card ID: 123</p>
+                <p>Current Balance: <?=$userInformation[0]['c_credit']?> BDT</p>
+                <p>Current Status: <?=$userInformation[0]['c_package']?></p>
+                <p>Manager Assigned: <?=$userInformation[0]['c_assigned_manager']?></p>
+                <p>Products Invested In: <?=$userInformation[0]['product_invested']?></p>
+                <p>Virtual Card ID: <?=$userInformation[0]['c_id']?></p>
                 
             </td>
             

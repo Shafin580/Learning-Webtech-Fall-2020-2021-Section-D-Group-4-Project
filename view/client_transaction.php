@@ -1,9 +1,10 @@
 <?php
-	if(!isset($_COOKIE['client'])){
+	session_start();
+	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
 
-    
+    require_once('../models/clientService.php');
 
 ?>
 
@@ -42,7 +43,7 @@
             
             <td>
                 
-                <h3>Welcome, Shafin</h3>
+                <h3>Welcome, <?=$_SESSION['username']?></h3>
                 <ul>
                     
                     <li><a href="view_client_profile.php">View Profile</a></li>
@@ -62,39 +63,24 @@
             
             <td align="center">
                 
-                <form action="">
+                
                     
                     <table border="1" width="100%">
                         
-                        <tr><th colspan="6">Transaction History</th></tr>
+                        <tr><th colspan="7">Transaction History</th></tr>
                         <tr><th>Transaction No</th>
-                        <th>Product</th>
-                        <th>Invested</th>
-                        <th>Transaction</th>
-                        <th>Amount</th>
+                        <th>Product Id</th>
+                        <th>Product Item</th>
+                        <th>Price</th>
+                        <th>Stock Action</th>
+                        <th>Status</th>
                         <th>Date</th></tr>
                         
-                        <tr>
-                            <td>01</td>
-                            <td>none</td>
-                            <td>Biscuit(100)</td>
-                            <td>none</td>
-                            <td>300</td>
-                            <td>12/09/2020</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>02</td>
-                            <td>none</td>
-                            <td>none</td>
-                            <td>Withdraw(Bkash)</td>
-                            <td>300</td>
-                            <td>12/09/2020</td>
-                        </tr>
+                        <?=getTransactionHistory($_SESSION['username'])?>
                         
                     </table> 
                     
-                </form>
+                
                 
                 
                 

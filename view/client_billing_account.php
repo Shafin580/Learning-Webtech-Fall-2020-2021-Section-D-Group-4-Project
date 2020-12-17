@@ -1,9 +1,8 @@
 <?php
-	if(!isset($_COOKIE['client'])){
+	session_start();
+	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
-
-    
 
 ?>
 
@@ -42,7 +41,7 @@
             
             <td>
                 
-                <h3>Welcome, Shafin</h3>
+                <h3>Welcome, <?=$_SESSION['username']?></h3>
                 <ul>
                     
                     <li><a href="view_client_profile.php">View Profile</a></li>
@@ -62,15 +61,15 @@
             
             <td align="center">
                 
-                <form action="">
+                <form action="../php/client_billing_account.php" method="post">
                     
                     <u><h3>Add Bank/Mobile Bank Accounts</h3></u>
                     
-                    Account Number: <input type="number" name="accountNo">
+                    Account Number: <input type="tel" pattern="[0-9]{10}" placeholder="1234567890" name="accountNo">
                     <select name="accountName" >
-				<option value=""  selected >Bkash</option>
-				<option value="">DBBL</option>
-				<option value="">Nagad</option>
+				<option value="Bkash"  selected >Bkash</option>
+				<option value="DBBL">DBBL</option>
+				<option value="Nagad">Nagad</option>
 			</select><br><br>
                    <input type="submit" name="submit" value="Add"> 
                     

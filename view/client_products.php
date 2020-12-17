@@ -1,10 +1,11 @@
 <?php
-	if(!isset($_COOKIE['client'])){
+	session_start();
+	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
 
+    require_once('../models/clientService.php');
     
-
 ?>
 
 
@@ -42,7 +43,7 @@
             
             <td>
                 
-                <h3>Welcome, Shafin</h3>
+                <h3>Welcome, <?=$_SESSION['username']?></h3>
                 <ul>
                     
                     <li><a href="view_client_profile.php">View Profile</a></li>
@@ -62,67 +63,29 @@
             
             <td align="center">
                 
-                <form action="">
+                <form action="../php/client_stock_products.php" method="post">
                     
                     
                     
                     <table border="1" width="100%">
+                                 
                         
+        
                         <tr>
                             
                             <td>
                                 
-                                <h3>Product: Biscuit</h3>
-                                <p>Price: 3TK/Share</p>
-                                Buy : <input type="number" name="product_01_amount" min="0" max="100"> Share <br> <br>
-                                <input type="submit" name="buy_1" value="Buy">
+                                Product Name: <select id="productId" onchange="productInfo()">
+                                    
+                                    <?=showAllStockProducts()?>
+                                    
+                                </select><br><br>
                                 
-                            </td>
-                            
-                            <td align="right">
+                                Product ID: <input type="text" name="spId" disabled><br><br>
+                                Product Price: <input type="text" name="spPrice" disabled>/Share<br><br>
+                                Product Quantity: <input type="number" name="spqty"><br><br>
                                 
-                                <p>Bought: 0</p>
-                                
-                                
-                            </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                            <td>
-                                
-                                <h3>Product: Pen</h3>
-                                <p>Price: 2TK/Share</p>
-                                Buy : <input type="number" name="product_02_amount" min="0" max="100"> Share <br> <br>
-                                <input type="submit" name="buy_2" value="Buy">
-                                
-                            </td>
-                            
-                            <td align="right">
-                                
-                                <p>Bought: 0</p>
-                                
-                                
-                            </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                            <td>
-                                
-                                <h3>Product: Eraser</h3>
-                                <p>Price: 1.5TK/Share</p>
-                                Buy : <input type="number" name="product_03_amount" min="0" max="100"> Share <br> <br>
-                                <input type="submit" name="buy_3" value="Buy">
-                                
-                            </td>
-                            
-                            <td align="right">
-                                
-                                <p>Bought: 0</p>
-                                
+                                <input type="submit" name="submit" value="Buy">
                                 
                             </td>
                             
@@ -144,3 +107,4 @@
     
 </body>
 </html>
+

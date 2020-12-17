@@ -1,7 +1,11 @@
 <?php
-	if(!isset($_COOKIE['client'])){
+	session_start();
+	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
+
+    require_once('../models/clientService.php');
+    $userInformation = getUserInformation($_SESSION['username']);
 
     
 
@@ -42,7 +46,7 @@
             
             <td>
                 
-                <h3>Welcome, Shafin</h3>
+                <h3>Welcome, <?=$userInformation[0]['c_username']?></h3>
                 <ul>
                     
                     <li><a href="view_client_profile.php">View Profile</a></li>
@@ -62,11 +66,11 @@
             
             <td align="center">
                 
-                <p>Name: Shafin Ahmed</p>
-                <p>Username: Shafin</p>
-                <p>Email: shafin@gmail.com</p>
-                <p>Gender: Male</p>
-                <p>Date of Birth: 12/09/1997</p>
+                <p>Name: <?=$userInformation[0]['c_name']?></p>
+                <p>Username: <?=$userInformation[0]['c_username']?></p>
+                <p>Email: <?=$userInformation[0]['c_email']?></p>
+                <p>Gender: <?=$userInformation[0]['c_gender']?></p>
+                <p>Date of Birth: <?=$userInformation[0]['c_dob']?></p>
                 
                 
                 

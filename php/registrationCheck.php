@@ -1,8 +1,13 @@
 <?php
 
+require_once('../models/clientService.php');
+
+
 if(isset($_REQUEST['submit'])){
     
-    if(!empty($_REQUEST['name']) and !empty($_REQUEST['username']) and !empty($_REQUEST['email']) and !empty($_REQUEST['password']) and !empty($_REQUEST['confirmPassword']) and !empty($_REQUEST['dateofBirth']) and !empty($_REQUEST['genderRadio']) and !empty($_REQUEST['userRadio']) and !empty($_REQUEST['id'])){
+    
+    
+    if(!empty($_REQUEST['name']) and !empty($_REQUEST['username']) and !empty($_REQUEST['email']) and !empty($_REQUEST['password']) and !empty($_REQUEST['confirmPassword']) and !empty($_REQUEST['dateofBirth']) and !empty($_REQUEST['genderRadio']) and !empty($_REQUEST['userRadio'])){
         
         if($_REQUEST['password']==$_REQUEST['confirmPassword']){
             
@@ -28,12 +33,21 @@ if(isset($_REQUEST['submit'])){
                 
                 else{
                     
-                    $myfile = fopen('../assets/userInfo.txt', 'a');
-	$data = $_REQUEST['id']."|".$_REQUEST['password']."|".$_REQUEST['name']."|".$_REQUEST['username']."|".$_REQUEST['userRadio']."|".
-        $_REQUEST['genderRadio']."|".$_REQUEST['email']."|".$_REQUEST['dateofBirth']."\n";
-	fwrite($myfile, $data);
-	fclose($myfile);
-            header('location: ../view/registration.php?msg=registration_completed');
+                    
+                    
+                    if($_REQUEST['userRadio']=="Client"){
+                        
+                        if(userRegistration($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['userRadio'])){
+                            
+                            if(clientRegistration($_REQUEST['name'], $_REQUEST['password'], $_REQUEST['username'], $_REQUEST['email'], $_REQUEST['genderRadio'], $_REQUEST['dateofBirth'])){
+                                
+                                header('location: ../view/registration.php?msg=registration_completed');
+                                
+                            }else{header('location: ../view/registration.php?msg=registration_failed');}
+                            
+                        }else{header('location: ../view/registration.php?msg=username_taken');}
+                        
+                    }
                     
                 }
                 

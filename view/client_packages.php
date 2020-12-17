@@ -1,8 +1,11 @@
 <?php
-	if(!isset($_COOKIE['client'])){
+	session_start();
+	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
 
+    require_once('../models/clientService.php');
+    $userInformation = getUserInformation($_SESSION['username']);
     
 
 ?>
@@ -42,7 +45,7 @@
             
             <td>
                 
-                <h3>Welcome, Shafin</h3>
+                <h3>Welcome, <?=$_SESSION['username']?></h3>
                 <ul>
                     
                     <li><a href="view_client_profile.php">View Profile</a></li>
@@ -62,7 +65,7 @@
             
             <td align="center">
                 
-                <form action="">
+                <form action="../php/client_package_upgrade.php" method="post">
                     
                     
                     
@@ -73,15 +76,15 @@
                             <td>
                                 
                                 <h3>Package: Basic</h3>
-                                <p>Alloted voucher: 3/month</p>
+                                <p>Alloted voucher: 0/month</p>
                                 <p>Price: 0 BDT</p>
                                 
                             </td>
                             
                             <td align="right">
                                 
-                                <p>Status: Active</p>
                                 
+                                <input type="submit" name="basic" value="Upgrade">
                                 
                             </td>
                             
@@ -99,8 +102,8 @@
                             
                             <td align="right">
                                 
-                                <p>Status: none</p>
-                                <input type="submit" name="submit_1" value="Upgrade">
+                                
+                                <input type="submit" name="pro" value="Upgrade">
                                 
                                 
                             </td>
@@ -119,8 +122,8 @@
                             
                             <td align="right">
                                 
-                                <p>Status: none</p>
-                                <input type="submit" name="submit_2" value="Upgrade">
+                                
+                                <input type="submit" name="ultimate" value="Upgrade">
                                 
                                 
                             </td>

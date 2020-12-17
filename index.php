@@ -46,7 +46,7 @@
 
                     <form action="php/loginValidate.php" method="post">
 
-                        <input type="text" name="id" placeholder="Enter ID"><br><br>
+                        <input type="text" name="username" placeholder="Enter Username"><br><br>
                         <input type="password" name="password" placeholder="Enter Password"><br><br>
                         <input type="submit" name="submit" value="Login">&nbsp;&nbsp;&nbsp;
                         <a href="view/registration.php"><input type="button" name="signup" value="signup"></a>

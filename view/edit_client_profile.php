@@ -1,9 +1,12 @@
 <?php
-	if(!isset($_COOKIE['client'])){
+	session_start();
+	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
 
-    
+    require_once('../models/clientService.php');
+    $userInformation = getUserInformation($_SESSION['username']);
+
 
 ?>
 
@@ -42,7 +45,7 @@
             
             <td>
                 
-                <h3>Welcome, Shafin</h3>
+                <h3>Welcome, <?=$userInformation[0]['c_username']?></h3>
                 <ul>
                     
                     <li><a href="view_client_profile.php">View Profile</a></li>
@@ -62,16 +65,18 @@
             
             <td align="center">
                 
-                <form action="">
+                <form action="../php/client_edit_profile.php" method="post">
                     
                     <u><h3>Edit Profile</h3></u>
                     
-                    Username : <input type="text" name="username" value="Shafin"><br><br>
-                    Email : <input type="email" name="email" value="shafin@gmail.com"><br><br>
-                    Date of birth : <input type="date" name="date"><br><br>
+                    Name : <input type="text" name="name" value="<?=$userInformation[0]['c_name']?>"><br><br>
+                    Email : <input type="email" name="email" value="<?=$userInformation[0]['c_email']?>"><br><br>
+                    Date of birth : <input type="date" name="dob" value="<?=$userInformation[0]['c_dob']?>"><br><br>
                     <input type="submit" name="submit" value="Update">
                     
                 </form>
+                
+                
                 
                 
                 
@@ -85,3 +90,10 @@
     
 </body>
 </html>
+
+
+
+    
+                        
+    
+                
