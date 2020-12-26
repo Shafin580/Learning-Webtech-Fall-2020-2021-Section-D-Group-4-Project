@@ -451,7 +451,7 @@ function checkClientStockProduct($username, $productId){
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     
-    if(count($row) > 0){
+    if(!empty($row)){
         
             return true;
         
@@ -494,7 +494,7 @@ function updateClientStockProduct($username, $productId, $productQty, $stockActi
             if(mysqli_query($conn, $query)){
         
                 mysqli_query($conn, $query2);
-                transaction($username, $productId, $data['sp_name']."(".$productQty.")", $totalPrice, $stockAction);
+                transaction($username, $productId, $data['sp_name']."-".$productQty, $totalPrice, $stockAction);
                 return true;
         
             }
@@ -522,7 +522,7 @@ function updateClientStockProduct($username, $productId, $productQty, $stockActi
         
         if(mysqli_query($conn, $query)){
         
-            transaction($username, $productId, $data['sp_name']."(".$productQty.")", $totalPrice, $stockAction);
+            transaction($username, $productId, $data['sp_name']."-".$productQty, $totalPrice, $stockAction);
             return true;
         
         }

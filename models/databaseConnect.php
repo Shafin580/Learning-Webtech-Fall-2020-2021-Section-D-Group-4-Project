@@ -16,15 +16,13 @@ function userValidate($username, $password){
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     
-    if(count($row) > 0){
+    if(!empty($row)){
         
         if($row['user_type']=="Client"){
             
             session_start();
             $_SESSION['userType'] = $row['user_type'];
             $_SESSION['username'] = $row['username'];
-            //setcookie("client", "flag", time()+600, '/');
-            //header('location: ../view/client_home.php');
             return true;
             
         }

@@ -44,11 +44,11 @@
 
                 <td>
 
-                    <form action="php/loginValidate.php" method="post">
+                    <form>
 
-                        <input type="text" name="username" placeholder="Enter Username"><br><br>
-                        <input type="password" name="password" placeholder="Enter Password"><br><br>
-                        <input type="submit" name="submit" value="Login">&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="username" id="userName" placeholder="Enter Username"><br><br>
+                        <input type="password" name="password" id="Password" placeholder="Enter Password"><br><br>
+                        <input type="button" name="submit" id="Submit" value="Login" onclick="userValidate()">&nbsp;&nbsp;&nbsp;
                         <a href="view/registration.php"><input type="button" name="signup" value="signup"></a>
 
 
@@ -60,25 +60,13 @@
 
         </table>
 
+  <h4 style="color: red;" id="response"></h4>
+   
     </center>
+
+<script type="text/javascript" src="assets/scripts/clientScript.js"></script>
 
 </body>
 
 </html>
 
-<?php
-
-	if(isset($_REQUEST['msg'])){
-		if($_REQUEST['msg'] == 'missing_information'){
-			echo "Please fill up all information";
-		}
-
-		if($_REQUEST['msg'] == 'invalid_credentials'){
-			echo "Invalid Credentials";
-		}
-        
-        
-
-		
-	}
-?>

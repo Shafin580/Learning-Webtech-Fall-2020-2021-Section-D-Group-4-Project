@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 require_once('../models/databaseConnect.php');
 
 if(isset($_REQUEST['submit'])){
@@ -13,17 +13,17 @@ if(isset($_REQUEST['submit'])){
             
             if($_SESSION['userType']=="Client"){
                 
-                header('location: ../view/client_home.php');
-                
+                //header('location: ../view/client_home.php');
+                echo "Valid";
             }
             
-        }else{header('location: ../index.php?msg=invalid_credentials');}
+        }else{echo "Invalid credentials";}
   
     }
     
     else{
         
-        header('location: ../index.php?msg=missing_information');
+        echo "Missing Information";
         
     }
     
