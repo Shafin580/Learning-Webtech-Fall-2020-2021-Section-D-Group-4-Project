@@ -29,7 +29,7 @@
     <center>
 
 
-        <form action="../php/registrationCheck.php" method="post">
+        <form>
 
             <table border="0" cellspacing="0" cellpadding="0">
 
@@ -44,12 +44,12 @@
                             <legend>Registration</legend>
 
                             
-                            Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="name"><br><br>
-                            Username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="username"><br><br>
-                            Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="email" name="email" placeholder="example@gmail.com"><br><br>
-                            Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="password" name="password"><br><br>
-                            Confirm Password : <input type="password" name="confirmPassword"><br><br>
-                            Date of birth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="date" name="dateofBirth"><br><br>
+                            Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="name" id="Name"><br><br>
+                            Username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="username" id="Username"><br><br>
+                            Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="email" id="Email" placeholder="example@gmail.com"><br><br>
+                            Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="password" name="password" id="Password"><br><br>
+                            Confirm Password : <input type="password" name="confirmPassword" id="CPassword"><br><br>
+                            Date of birth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="date" name="dateofBirth" id="dob"><br><br>
                             Gender : <input type="radio" name="genderRadio" value="Male"> Male <br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="genderRadio" value="Female"> Female <br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="genderRadio" value="Others"> Others <br> <br>
@@ -57,7 +57,8 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="userRadio" value="Co-Client"> Co-Client <br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="userRadio" value="Manager"> Manager <br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="userRadio" value="Admin"> Admin <br> <br>
-                            <input type="submit" name="submit" value="Submit">
+                            <input type="button" name="submit" id="Submit" value="Submit" onclick="registration()">
+                            <h4 id="response"></h4>
 
                         </fieldset>
 
@@ -73,6 +74,7 @@
 
     </center>
 
+<script type="text/javascript" src="../assets/scripts/script.js"></script>
 
 </body>
 
@@ -81,38 +83,5 @@
 
 
 
-<?php
 
-	if(isset($_REQUEST['msg'])){
-		if($_REQUEST['msg'] == 'password_not_match'){
-			echo "Password and Confirm Password doesn't match";
-		}
-
-		if($_REQUEST['msg'] == 'information_missing'){
-			echo "Please fill up all information!";
-		}
-        
-        if($_REQUEST['msg'] == 'registration_completed'){
-			echo "Registration Completed!";
-		}
-        
-        if($_REQUEST['msg'] == 'invalid_name'){
-			echo "Invalid Name!";
-		}
-        
-        if($_REQUEST['msg'] == 'invalid_username'){
-			echo "Invalid Username";
-		}
-        
-        if($_REQUEST['msg'] == 'registration_failed'){
-			echo "Registration Failed";
-		}
-        
-        if($_REQUEST['msg'] == 'username_taken'){
-			echo "Username Taken!";
-		}
-
-		
-	}
-?>
 

@@ -16,50 +16,60 @@ if(isset($_REQUEST['submit'])){
                 
                 $pattern = array('<', ',', '>', '/', '?', '"', "'", ';', ':', ']', '[', '|', '}', '{', '=', '+',
                             '_', ')', '(', '*', '&', '^', '%', '$', '#', '@', '!', '`', '~', '0', '1', '2', '3', 
-                            '4', '5', '6', '7', '8', '9',);
+                            '4', '5', '6', '7', '8', '9');
             
             for($i = 0; $i < count($pattern); $i++){
                 
                 if(strpos($_REQUEST['name'], $pattern[$i])==true){
-                    header('location: ../view/registration.php?msg=invalid_name');
+                    echo "Invalid Name";
                     break;
                 }
                 
             }
               
                 if(strpos($_REQUEST['username'], " ")){
-                    header('location: ../view/registration.php?msg=invalid_username');
+                    echo "Invalid username";
                 }
                 
                 else{
                     
-                    
-                    
-                    if($_REQUEST['userRadio']=="Client"){
+                    if(strpos($_REQUEST['email'], "@")){
+                        
+                        if($_REQUEST['userRadio']=="Client"){
                         
                         if(userRegistration($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['userRadio'])){
                             
                             if(clientRegistration($_REQUEST['name'], $_REQUEST['password'], $_REQUEST['username'], $_REQUEST['email'], $_REQUEST['genderRadio'], $_REQUEST['dateofBirth'])){
                                 
-                                header('location: ../view/registration.php?msg=registration_completed');
+                                echo "Registration Completed!";
                                 
-                            }else{header('location: ../view/registration.php?msg=registration_failed');}
+                            }else{echo "Registration Failed";}
                             
-                        }else{header('location: ../view/registration.php?msg=username_taken');}
+                        }else{echo "Username Taken";}
                         
                     }
+                        
+                        
+                        
+                    }else{
+                        
+                        echo "Invalid Email";
+                        
+                    }
+                    
+                    
                     
                 }
                 
             }
-            else{header('location: ../view/registration.php?msg=invalid_name');}
+            else{echo "Invalid Name";}
             
             
         }
         
         else{
             
-            header('location: ../view/registration.php?msg=password_not_match');
+            echo "Password did not match";
             
             
         }
@@ -68,7 +78,7 @@ if(isset($_REQUEST['submit'])){
     
     else{
         
-        header('location: ../view/registration.php?msg=information_missing');
+        echo "Missing information";
         
         
     }

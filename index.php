@@ -64,7 +64,7 @@
    
     </center>
 
-<script type="text/javascript" src="assets/scripts/clientScript.js"></script>
+<script type="text/javascript" src="assets/scripts/script.js"></script>
 
 </body>
 
