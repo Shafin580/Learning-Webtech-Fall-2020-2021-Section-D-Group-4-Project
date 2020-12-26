@@ -54,6 +54,7 @@
                     <li><a href="client_transaction.php">Transaction History</a></li>
                     <li><a href="client_flexiload.php">Flexiload</a></li>
                     <li><a href="client_offers.php">Offers</a></li>
+                    <li><a href="client_manage_stock_products.php">Manage Stocks</a></li>
                     <li><a href="client_change_password.php">Change Password</a></li>
                     
                 </ul>

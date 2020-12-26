@@ -293,9 +293,9 @@ function transaction($username, $productId, $productItem, $price, $stockAction =
     
     $conn = getConnection('localhost', 'root', '', 'e_pocket_system');
     
-    if(stockAction == "null"){
+    if($stockAction == "null"){
         
-        if($productId=="D"){
+        if($productId=="D" or $productId=="F"){
         
         $sql = "insert into transaction (username, product_id, product_item, price, status) values ('$username', '$productId', '$productItem', '$price', 'Clear')";
         
@@ -375,6 +375,41 @@ function getTransactionHistory($username){
     
 }
 
+
+function flexiload($username, $productId, $productItem, $amount){
+    
+    $conn = getConnection('localhost', 'root', '', 'e_pocket_system');
+    $sql = "select * from client where c_username = '$username'";
+    $result = mysqli_query($conn, $sql);
+    $data = mysqli_fetch_assoc($result);
+    
+    $credit = intval($data['c_credit']);
+    
+    if($credit < $amount){
+        
+        return false;
+        
+    }else{
+        
+        $credit = $credit - $amount;
+        
+        $updateBalance = "update client set c_credit = '$credit' where c_username = '$username'";
+        mysqli_query($conn, $updateBalance);
+        
+        if(transaction($username, $productId, $productItem, $amount)){
+            
+            return true;
+            
+        }else{
+            
+            return false;
+            
+        }
+        
+        
+    }
+}
+
 function showAllStockProducts(){
     
     $conn = getConnection('localhost', 'root', '', 'e_pocket_system');
@@ -384,7 +419,7 @@ function showAllStockProducts(){
     
     while($data = mysqli_fetch_assoc($result)){
         
-        echo "<option value=".$data['sp_id'].">".$data['sp_name']."</option>";
+        echo "<option value=".$data['sp_id']."|".$data['sp_price'].">".$data['sp_name']."</option>";
         //for javacript use an onclick event on a tag and the function must have a parameter for sp_id and product_quantity
         
         
@@ -400,9 +435,9 @@ function getStockProductInformation($productId){
     
     $stockProductInfo = [];
     
-    while($data = mysqli_fetch_assoc($result)){
-			array_push($stockProductInfo, $data);
-		}
+    $data = mysqli_fetch_assoc($result);
+    array_push($stockProductInfo, $data);
+		
     
     return $stockProductInfo;
     
@@ -413,8 +448,10 @@ function checkClientStockProduct($username, $productId){
     
     $conn = getConnection('localhost', 'root', '', 'e_pocket_system');
     $sql = "select * from client_stock_products where c_username = '$username' and sp_id = '$productId'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
     
-    if(mysqli_query($conn, $sql)){
+    if(count($row) > 0){
         
             return true;
         
@@ -444,7 +481,7 @@ function updateClientStockProduct($username, $productId, $productQty, $stockActi
     
     
     
-    if(stockAction=="buy"){
+    if($stockAction=="buy"){
         
         if($credit >= $totalPrice){
             
@@ -457,6 +494,7 @@ function updateClientStockProduct($username, $productId, $productQty, $stockActi
             if(mysqli_query($conn, $query)){
         
                 mysqli_query($conn, $query2);
+                transaction($username, $productId, $data['sp_name']."(".$productQty.")", $totalPrice, $stockAction);
                 return true;
         
             }
@@ -469,7 +507,7 @@ function updateClientStockProduct($username, $productId, $productQty, $stockActi
             
         }else{
             
-            echo "insufficient Balance";
+            echo "Insufficient balance";
             return false;
             
         }
@@ -478,12 +516,13 @@ function updateClientStockProduct($username, $productId, $productQty, $stockActi
         
     }
     
-    elseif(stockAction=="sell"){
+    elseif($stockAction=="sell"){
         $totalQty = $totalQty - $productQty;
         $query = "update client_stock_products set sp_bought_qty = '$totalQty' where c_username = '$username' and sp_id = '$productId'";
         
         if(mysqli_query($conn, $query)){
         
+            transaction($username, $productId, $data['sp_name']."(".$productQty.")", $totalPrice, $stockAction);
             return true;
         
         }
@@ -498,10 +537,18 @@ function updateClientStockProduct($username, $productId, $productQty, $stockActi
     
 }
 
-function buyClientStockProduct($username, $productId, $productName, $productQty, $totalPrice){
+function buyClientStockProduct($username, $productId, $productQty, $totalPrice, $stockAction = "buy"){
     
     $conn = getConnection('localhost', 'root', '', 'e_pocket_system');
-    $sql = "insert into client_stock_products (c_username, sp_id, sp_name, sp_bought_qty) values ('$username', '$productId', '$productName', '$productQty')";
+    
+    $productQuery = "select * from stock_products where sp_id = '$productId'";
+    $productResult = mysqli_query($conn, $productQuery);
+    $productData = mysqli_fetch_assoc($productResult);
+    
+    $productName = $productData['sp_name'];
+    $productPrice = $productData['sp_price'];
+    
+    $sql = "insert into client_stock_products (c_username, sp_id, sp_name, sp_price, sp_bought_qty) values ('$username', '$productId', '$productName', '$productPrice', '$productQty')";
     
     $userQuery = "select * from client where c_username = '$username'";
     
@@ -517,6 +564,7 @@ function buyClientStockProduct($username, $productId, $productName, $productQty,
         if(mysqli_query($conn, $sql)){
         
             mysqli_query($conn, $query);
+            transaction($username, $productId, $productName, $totalPrice, $stockAction);
             return true;
         
         }
@@ -533,6 +581,100 @@ function buyClientStockProduct($username, $productId, $productName, $productQty,
         echo "Insufficient balance";
         return false;
         
+    }
+    
+}
+
+function getAllOfferedProducts(){
+    
+    $conn = getConnection('localhost', 'root', '', 'e_pocket_system');
+    $sql = "select * from offered_products";
+    $result = mysqli_query($conn, $sql);
+    
+    
+    while($data = mysqli_fetch_assoc($result)){
+        
+        if(intval($data['stock']) > 0){
+            
+            $price = intval($data['p_price']) - intval($data['discount']);
+        
+            echo "<option value=".$data['p_id']."|".$price."|".$data['stock'].">".$data['p_name']."</option>";
+            //for javacript use an onclick event on a tag and the function must have a parameter for p_id
+            
+        }
+   
+    }
+    
+}
+
+function buyOfferedProduct($username, $productId, $productPrice){
+    
+    $conn = getConnection('localhost', 'root', '', 'e_pocket_system');
+    $productQuery = "select * from offered_products where p_id = '$productId'";
+    $productResult = mysqli_query($conn, $productQuery);
+    $productData = mysqli_fetch_assoc($productResult);
+    $productName = $productData['p_name'];
+    $stock = intval($productData['stock']) - 1;
+    
+    $userQuery = "select * from client where c_username = '$username'";
+    $userResult = mysqli_query($conn, $userQuery);
+    $userData = mysqli_fetch_assoc($userResult); 
+    $credit = intval($userData['c_credit']);
+    
+    if($credit >= $productPrice){
+        
+        $credit = $credit - $productPrice;
+        
+        $clientQuery = "update client set c_credit = '$credit' where c_username = '$username'";
+        mysqli_query($conn, $clientQuery);
+        
+        $sql = "update offered_products set stock = '$stock' where p_id = '$productId'";
+        mysqli_query($conn, $sql);
+        
+        transaction($username, $productId, $productName, $productPrice);
+        return true;
+        
+    }else{
+        
+        return false;
+        
+    }
+}
+
+function voucher($username){
+    
+    $conn = getConnection('localhost', 'root', '', 'e_pocket_system');
+    $userQuery = "select * from client where c_username = '$username'";
+    $userResult = mysqli_query($conn, $userQuery);
+    $userData = mysqli_fetch_assoc($userResult);
+    $voucher = intval($userData['vouchers']);
+    
+    if($voucher > 0){
+        
+        $voucher = $voucher - 1;
+        $sql = "update client set vouchers = '$voucher' where c_username = '$username'";
+        mysqli_query($conn, $sql);
+        return true;
+        
+    }else{
+        
+        return false;
+        
+    }
+    
+    
+}
+
+function getClientStockProductInformation($username){
+    
+    $conn = getConnection('localhost', 'root', '', 'e_pocket_system');
+    $sql = "select * from client_stock_products where c_username = '$username' and sp_bought_qty > 0";
+    $result = mysqli_query($conn, $sql);
+    
+    while($Data = mysqli_fetch_assoc($result)){
+        
+            echo "<option value=".$Data['sp_id']."|".$Data['sp_price']."|".$Data['sp_bought_qty'].">".$Data['sp_name']."</option>";
+  
     }
     
 }

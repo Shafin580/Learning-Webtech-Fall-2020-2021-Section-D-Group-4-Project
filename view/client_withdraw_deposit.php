@@ -59,6 +59,7 @@
                         <li><a href="client_transaction.php">Transaction History</a></li>
                         <li><a href="client_flexiload.php">Flexiload</a></li>
                         <li><a href="client_offers.php">Offers</a></li>
+                        <li><a href="client_manage_stock_products.php">Manage Stocks</a></li>
                         <li><a href="client_change_password.php">Change Password</a></li>
 
                     </ul>
@@ -88,7 +89,7 @@
                                             Withdraw To: <select name="accountName">
                                                 <?=getBillingAccount($_SESSION['username'])?>
                                             </select><br><br>
-                                            Amount: <input type="number" name="withdraw_amount" min="500" max="50000"> <br> <br>
+                                            Amount: <input type="number" name="withdraw_amount"> <br> <br>
                                             
 
                                         </td>
@@ -112,7 +113,7 @@
                                             Deposit From: <select name="accountName">
                                                 <?=getBillingAccount($_SESSION['username'])?>
                                             </select><br><br>
-                                            Amount: <input type="number" name="deposit_amount" min="500" max="50000"> <br> <br>
+                                            Amount: <input type="number" name="deposit_amount"> <br> <br>
                                             
 
                                         </td>

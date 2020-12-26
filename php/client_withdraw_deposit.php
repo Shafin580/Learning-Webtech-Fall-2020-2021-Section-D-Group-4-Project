@@ -10,6 +10,7 @@
         
         if(!empty($_REQUEST['withdraw_amount'])){
             
+            
             $withdrawAmount = intval($_REQUEST['withdraw_amount']);
             
             if($withdrawAmount < 0){

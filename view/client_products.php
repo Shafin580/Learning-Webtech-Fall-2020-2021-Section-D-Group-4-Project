@@ -55,6 +55,7 @@
                     <li><a href="client_transaction.php">Transaction History</a></li>
                     <li><a href="client_flexiload.php">Flexiload</a></li>
                     <li><a href="client_offers.php">Offers</a></li>
+                    <li><a href="client_manage_stock_products.php">Manage Stocks</a></li>
                     <li><a href="client_change_password.php">Change Password</a></li>
                     
                 </ul>
@@ -75,17 +76,18 @@
                             
                             <td>
                                 
-                                Product Name: <select id="productId" onchange="productInfo()">
-                                    
+                                Product Name: <select id="productName" onchange="productInfo()">
+                                    <option selected>Select</option>
                                     <?=showAllStockProducts()?>
                                     
                                 </select><br><br>
                                 
-                                Product ID: <input type="text" name="spId" disabled><br><br>
-                                Product Price: <input type="text" name="spPrice" disabled>/Share<br><br>
-                                Product Quantity: <input type="number" name="spqty"><br><br>
+                                Product Id: <input type="text" name="sp_id" id="productId" readonly="readonly"><br><br>
+                                Product Price: <input type="text" name="sp_price" id="productPrice" readonly="readonly">Tk/Share<br><br>
+                                Product Quantity: <input type="number" name="productQty"><br><br>
                                 
                                 <input type="submit" name="submit" value="Buy">
+                                
                                 
                             </td>
                             
@@ -104,6 +106,8 @@
     </table>
         
     </center>
+    
+    <script type="text/javascript" src="../assets/scripts/clientScript.js"></script>
     
 </body>
 </html>

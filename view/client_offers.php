@@ -4,7 +4,7 @@
 		header('location: ../index.php');
 	}
 
-    
+    require_once('../models/clientService.php');
 
 ?>
 
@@ -14,6 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>E-Pocket Banking System - Client - Client Offers</title>
+    
 </head>
 <body>
     
@@ -55,6 +56,7 @@
                     <li><a href="client_transaction.php">Transaction History</a></li>
                     <li><a href="client_flexiload.php">Flexiload</a></li>
                     <li><a href="client_offers.php">Offers</a></li>
+                    <li><a href="client_manage_stock_products.php">Manage Stocks</a></li>
                     <li><a href="client_change_password.php">Change Password</a></li>
                     
                 </ul>
@@ -63,79 +65,34 @@
             
             <td align="center">
                 
-                <form action="">
+                <form action="../php/client_offered_products.php" method="post">
                     
-                    
-                    
-                    <table border="1" width="100%">
-                        
-                        <tr>
-                            
-                            <td>
+                  <table border="1" width="100%">
+                      
+                      <tr>
+                          
+                          <td>
+                              
+                              Product Name: <select name="offeredProductName" id="productName" onchange="productInfo()">
+                                    <option selected>Select</option>
+                                    <?=getAllOfferedProducts()?>
+                                    
+                                </select><br><br>
                                 
-                                <h3>Product: Iphone</h3>
-                                <p>Price: 100000 BDT</p>
-                                <p>Discount: 10%</p>
-                                <p>Promotion from: Pickaboo</p>
-                                Buy : <input type="number" name="product_01_amount" min="0" max="100"> Share <br> <br>
-                                <input type="submit" name="buy_1" value="Buy">
+                                Product Id: <input type="text" name="p_id" id="productId" readonly="readonly"><br><br>
+                                Product Price: <input type="text" name="p_price" id="productPrice" readonly="readonly"><br><br>
+  
+                                Use Voucher? <input type="checkbox" name="checkbox" value="check">
                                 
-                            </td>
-                            
-                            <td align="right">
-                                
-                                <p>Bought: 0</p>
+                                <input type="submit" name="submit" value="Buy">
                                 
                                 
-                            </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                            <td>
-                                
-                                <h3>Product: Toshiba HDD 1TB</h3>
-                                <p>Price: 4000 BDT</p>
-                                <p>Discount: 15%</p>
-                                <p>Promotion from: Daraz</p>
-                                Buy : <input type="number" name="product_02_amount" min="0" max="100"> Share <br> <br>
-                                <input type="submit" name="buy_2" value="Buy">
-                                
-                            </td>
-                            
-                            <td align="right">
-                                
-                                <p>Bought: 0</p>
-                                
-                                
-                            </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            
-                            <td>
-                                
-                                <h3>Product: Trancend Pendrive 64GB</h3>
-                                <p>Price: 2500 BDT</p>
-                                <p>Discount: 20%</p>
-                                <p>Promotion from: Pickaboo</p>
-                                Buy : <input type="number" name="product_03_amount" min="0" max="100"> Share <br> <br>
-                                <input type="submit" name="buy_3" value="Buy">
-                                
-                            </td>
-                            
-                            <td align="right">
-                                
-                                <p>Bought: 0</p>
-                                
-                                
-                            </td>
-                            
-                        </tr>
-                        
-                    </table>
+                              
+                          </td>
+                          
+                      </tr>
+                      
+                  </table>
                     
                 </form>
                 
@@ -148,6 +105,8 @@
     </table>
         
     </center>
+    
+    <script type="text/javascript" src="../assets/scripts/clientScript.js"></script>
     
 </body>
 </html>

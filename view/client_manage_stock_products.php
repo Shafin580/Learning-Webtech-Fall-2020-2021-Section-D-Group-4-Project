@@ -4,7 +4,7 @@
 		header('location: ../index.php');
 	}
 
-    
+    require_once('../models/clientService.php');
 
 ?>
 
@@ -13,7 +13,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E-Pocket Banking System - Client - Client Flexiload</title>
+    <title>E-Pocket Banking System - Client - Manage Stocks</title>
+    
 </head>
 <body>
     
@@ -37,7 +38,7 @@
         
         <u><h1>E-Pocket Banking System</h1></u>
         
-        <table border="1" width="40%">
+        <table border="1" width="50%">
         
         <tr>
             
@@ -64,13 +65,39 @@
             
             <td align="center">
                 
-                <form action="../php/client_flexiload.php" method="post">
+                <form action="../php/client_manage_stock_products.php" method="post">
                     
-                    <u><h3>Flexi-Load</h3></u>
+                  <table border="1" width="100%">
+                      
+                      <tr>
+                          
+                          <td>
+                              
+                              Product Name: <select name="stockProductName" id="productName" onchange="productInfo()">
+                                    <option selected>Select</option>
+                                    <?=getClientStockProductInformation($_SESSION['username'])?>
+                                    
+                                </select><br><br>
+                                
+                                Product Id: <input type="text" name="p_id" id="productId" readonly="readonly"><br><br>
+                                Product Price: <input type="text" name="p_price" id="productPrice" readonly="readonly">Tk/Share<br><br>
+                                
+                                Product Qty Bought: <input type="text" name="p_qty_bought" id="productQtyBought" readonly="readonly"> Share <br><br>
+                                
+                                Product Qty Sell: <input type="number" name="p_qty_sell" id="productQtySell">
+                                
+                                <input type="submit" name="submit" value="sell">
+                                
+                                
+                                
+                                
+                              
+                          </td>
+                          
+                      </tr>
+                      
+                  </table>
                     
-                    Phone Number : <input type="number" name="phoneNumber"><br><br>
-                    Amount : <input type="number" name="flexiAmount"> BDT <br><br>
-                    <input type="submit" name="flexiload" value="Proceed">
                 </form>
                 
                 
@@ -82,6 +109,8 @@
     </table>
         
     </center>
+    
+    <script type="text/javascript" src="../assets/scripts/clientScript.js"></script>
     
 </body>
 </html>

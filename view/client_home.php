@@ -58,6 +58,7 @@
                     <li><a href="client_transaction.php">Transaction History</a></li>
                     <li><a href="client_flexiload.php">Flexiload</a></li>
                     <li><a href="client_offers.php">Offers</a></li>
+                    <li><a href="client_manage_stock_products.php">Manage Stocks</a></li>
                     <li><a href="client_change_password.php">Change Password</a></li>
                     
                 </ul>
@@ -69,7 +70,7 @@
                 <p>Current Balance: <?=$userInformation[0]['c_credit']?> BDT</p>
                 <p>Current Status: <?=$userInformation[0]['c_package']?></p>
                 <p>Manager Assigned: <?=$userInformation[0]['c_assigned_manager']?></p>
-                <p>Products Invested In: <?=$userInformation[0]['product_invested']?></p>
+                <p>Vouchers: <?=$userInformation[0]['vouchers']?></p>
                 <p>Virtual Card ID: <?=$userInformation[0]['c_id']?></p>
                 
             </td>

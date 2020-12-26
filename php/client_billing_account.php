@@ -12,11 +12,20 @@
         
         if(!empty($_REQUEST['accountNo'])){
             
-            if(addBillingAccount($_SESSION['username'], $_REQUEST['accountNo'], $_REQUEST['accountName'])){
+            if(strlen($_REQUEST['accountNo']) < 10){
+                
+                echo "Invalid Account Number";
+                
+            }else{
+                
+                if(addBillingAccount($_SESSION['username'], $_REQUEST['accountNo'], $_REQUEST['accountName'])){
                 
                 echo "Billing Account Added";
                 
             }else{echo "Failed to add billing account";}
+                
+            }
+    
             
         }else{echo "Missing Information";}
         

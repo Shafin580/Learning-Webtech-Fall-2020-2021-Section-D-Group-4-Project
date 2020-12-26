@@ -53,6 +53,7 @@
                     <li><a href="client_transaction.php">Transaction History</a></li>
                     <li><a href="client_flexiload.php">Flexiload</a></li>
                     <li><a href="client_offers.php">Offers</a></li>
+                    <li><a href="client_manage_stock_products.php">Manage Stocks</a></li>
                     <li><a href="client_change_password.php">Change Password</a></li>
                     
                 </ul>
@@ -65,7 +66,7 @@
                     
                     <u><h3>Add Bank/Mobile Bank Accounts</h3></u>
                     
-                    Account Number: <input type="tel" pattern="[0-9]{10}" placeholder="1234567890" name="accountNo">
+                    Account Number: <input type="number" placeholder="1234567890" name="accountNo">
                     <select name="accountName" >
 				<option value="Bkash"  selected >Bkash</option>
 				<option value="DBBL">DBBL</option>
