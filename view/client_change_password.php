@@ -63,18 +63,18 @@
             
             <td align="center">
                 
-                <form action="../php/client_change_password.php" method="post">
+                <form>
                     
                     <u><h3>Change Password</h3></u>
                     
-                    Current Password: <input type="password" name="currentPassword"><br><br>
-                    New Password: <input type="password" name="newPassword"><br><br>
-                    Re-type New Password: <input type="password" name="re-typeNewPassword"><br><br>
-                    <input type="submit" name="updatePassword" value="Update">
+                    Current Password: <input type="password" name="currentPassword" id="CurrentPassword"><br><br>
+                    New Password: <input type="password" name="newPassword" id="NewPassword"><br><br>
+                    Re-type New Password: <input type="password" name="re_typeNewPassword" id="reNewPassword"><br><br>
+                    <input type="button" name="updatePassword" id="Submit" value="Update" onclick="changePassword()">
                     
                 </form>
                 
-                
+                <h4 id="response"></h4>
                 
             </td>
             
@@ -83,6 +83,8 @@
     </table>
         
     </center>
+    
+    <script type="text/javascript" src="../assets/scripts/clientScript.js"></script>
     
 </body>
 </html>

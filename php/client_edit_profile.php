@@ -7,21 +7,55 @@
     require_once('../models/clientService.php');
     $userInformation = getUserInformation($_SESSION['username']);
 
-    if(isset($_REQUEST['submit'])){
-        
-        echo "<center><fieldset><legend>Messeges</legend>";
-        
-        if(!empty($_REQUEST['name']) and !empty($_REQUEST['email']) and !empty($_REQUEST['dob'])){
+    $data = $_REQUEST['data'];
+	$json = json_decode($data);
+
+    $submit = $json->submit;
+    $name = $json->name;
+    $email = $json->email;
+    $dob = $json->dob;
+
+    if(isset($submit)){
+  
+        if(!empty($name) and !empty($email) and !empty($dob)){
             
-            if(updateClientInformation($_REQUEST['name'], $_REQUEST['email'], $_REQUEST['dob'], $userInformation[0]['c_id'])){
+            $test = explode(" ", $name);
+            if(count($test) >= 2){
+                
+                $pattern = array('<', ',', '>', '/', '?', '"', "'", ';', ':', ']', '[', '|', '}', '{', '=', '+',
+                            '_', ')', '(', '*', '&', '^', '%', '$', '#', '@', '!', '`', '~', '0', '1', '2', '3', 
+                            '4', '5', '6', '7', '8', '9');
+            
+            for($i = 0; $i < count($pattern); $i++){
+                
+                if(strpos($name, $pattern[$i])==true){
+                    echo "Invalid Name";
+                    break;
+                }
+                
+            }
+                if(strpos($email, "@")){
+            
+                    if(updateClientInformation($name, $email, $dob, $userInformation[0]['c_id'])){
                 
                 echo "User information updated!";
                 
             }else{echo "Failed to update user information";}
+                        
+                    }else{
+                        
+                        echo "Invalid Email";
+                        
+                    }
+
+            }
+            else{echo "Invalid Name";}
+            
+            
             
         }else{echo "Missing Information";}
         
-        echo "</fieldset></center>";
+        
         
     }
 

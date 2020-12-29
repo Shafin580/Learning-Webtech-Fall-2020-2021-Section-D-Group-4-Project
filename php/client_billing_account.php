@@ -6,30 +6,47 @@
 
     require_once('../models/clientService.php');
 
-    if(isset($_REQUEST['submit'])){
+    $data = $_REQUEST['data'];
+	$json = json_decode($data);
+
+    $submit = $json->submit;
+    $accountName = $json->accountName;
+    $accountNo = $json->accountNo;
+
+    if(isset($submit)){
         
-        echo "<center><fieldset><legend>Messeges</legend>";
         
-        if(!empty($_REQUEST['accountNo'])){
+        
+        if(!empty($accountNo)){
             
-            if(strlen($_REQUEST['accountNo']) < 10){
+            if(strlen($accountNo) != 10){
                 
                 echo "Invalid Account Number";
                 
             }else{
                 
-                if(addBillingAccount($_SESSION['username'], $_REQUEST['accountNo'], $_REQUEST['accountName'])){
+                if(checkBillingAccount($_SESSION['username'], $accountName)){
+                    
+                    echo "Failed to add billing account";
+                    
+                }else{
+                    
+                    if(addBillingAccount($_SESSION['username'], $accountNo, $accountName)){
                 
-                echo "Billing Account Added";
+                        echo "Billing Account Added";
                 
-            }else{echo "Failed to add billing account";}
+                    }else{echo "Failed to add billing account";}
+                    
+                }
+                
+                
                 
             }
     
             
         }else{echo "Missing Information";}
         
-        echo "</fieldset></center>";
+        
         
     }
 

@@ -64,16 +64,16 @@
             
             <td align="center">
                 
-                <form action="../php/client_flexiload.php" method="post">
+                <form>
                     
                     <u><h3>Flexi-Load</h3></u>
                     
-                    Phone Number : <input type="number" name="phoneNumber"><br><br>
-                    Amount : <input type="number" name="flexiAmount"> BDT <br><br>
-                    <input type="submit" name="flexiload" value="Proceed">
+                    Phone Number : <input type="number" name="phoneNumber" id="PhoneNo"><br><br>
+                    Amount : <input type="number" name="flexiAmount" id="FlexiAmount"> BDT <br><br>
+                    <input type="button" name="flexiload" id="Submit" value="Proceed" onclick="flexiLoad()">
                 </form>
                 
-                
+                <h4 id="response"></h4>
                 
             </td>
             
@@ -82,6 +82,8 @@
     </table>
         
     </center>
+    
+    <script type="text/javascript" src="../assets/scripts/clientScript.js"></script>
     
 </body>
 </html>

@@ -83,9 +83,8 @@
                             </td>
                             
                             <td align="right">
-                                
-                                
-                                <input type="submit" name="basic" value="Upgrade">
+
+                                <input type="button" name="basic" id="Basic" value="Upgrade" onclick="upgradeBasicPackage()">
                                 
                             </td>
                             
@@ -104,7 +103,7 @@
                             <td align="right">
                                 
                                 
-                                <input type="submit" name="pro" value="Upgrade">
+                                <input type="button" name="pro" id="Pro" value="Upgrade" onclick="upgradeProPackage()">
                                 
                                 
                             </td>
@@ -124,7 +123,7 @@
                             <td align="right">
                                 
                                 
-                                <input type="submit" name="ultimate" value="Upgrade">
+                                <input type="button" name="ultimate" id="Ultimate" value="Upgrade" onclick="upgradeUltimatePackage()">
                                 
                                 
                             </td>
@@ -135,7 +134,7 @@
                     
                 </form>
                 
-                
+                <h4 id="response"></h4>
                 
             </td>
             
@@ -144,6 +143,8 @@
     </table>
         
     </center>
+    
+    <script type="text/javascript" src="../assets/scripts/clientScript.js"></script>
     
 </body>
 </html>

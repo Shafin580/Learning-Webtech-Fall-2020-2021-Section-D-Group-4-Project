@@ -65,7 +65,7 @@
             
             <td align="center">
                 
-                <form action="../php/client_offered_products.php" method="post">
+                <form>
                     
                   <table border="1" width="100%">
                       
@@ -82,9 +82,9 @@
                                 Product Id: <input type="text" name="p_id" id="productId" readonly="readonly"><br><br>
                                 Product Price: <input type="text" name="p_price" id="productPrice" readonly="readonly"><br><br>
   
-                                Use Voucher? <input type="checkbox" name="checkbox" value="check">
+                                Use Voucher? <input type="checkbox" name="checkbox" id="Checkbox" value="check">
                                 
-                                <input type="submit" name="submit" value="Buy">
+                                <input type="button" name="submit" id="Submit" value="Buy" onclick="buyOfferedProduct()">
                                 
                                 
                               
@@ -96,7 +96,7 @@
                     
                 </form>
                 
-                
+                <h4 id="response"></h4>
                 
             </td>
             

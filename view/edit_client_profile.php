@@ -66,21 +66,18 @@
             
             <td align="center">
                 
-                <form action="../php/client_edit_profile.php" method="post">
+                <form>
                     
                     <u><h3>Edit Profile</h3></u>
                     
-                    Name : <input type="text" name="name" value="<?=$userInformation[0]['c_name']?>"><br><br>
-                    Email : <input type="email" name="email" value="<?=$userInformation[0]['c_email']?>"><br><br>
-                    Date of birth : <input type="date" name="dob" value="<?=$userInformation[0]['c_dob']?>"><br><br>
-                    <input type="submit" name="submit" value="Update">
+                    Name : <input type="text" name="name" id="username" value="<?=$userInformation[0]['c_name']?>"><br><br>
+                    Email : <input type="text" name="email" id="useremail" value="<?=$userInformation[0]['c_email']?>"><br><br>
+                    Date of birth : <input type="date" name="dob" id="userdob" value="<?=$userInformation[0]['c_dob']?>"><br><br>
+                    <input type="button" name="submit" id="usersubmit" value="Update" onclick="updateUserInformation()">
                     
                 </form>
                 
-                
-                
-                
-                
+                   <h4 id="response"></h4>
             </td>
             
         </tr>
@@ -88,6 +85,8 @@
     </table>
         
     </center>
+    
+    <script type="text/javascript" src="../assets/scripts/clientScript.js"></script>
     
 </body>
 </html>

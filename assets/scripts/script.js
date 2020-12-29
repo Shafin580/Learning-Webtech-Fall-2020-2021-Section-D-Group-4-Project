@@ -22,7 +22,7 @@ function userValidate(){
 		
 		if (this.readyState == 4 && this.status == 200) {
             
-            if(this.responseText=="Valid"){
+            if(this.responseText == "Client Valid"){
                 
                 window.location.href = "view/client_home.php";
                 

@@ -65,7 +65,7 @@
             
             <td align="center">
                 
-                <form action="../php/client_manage_stock_products.php" method="post">
+                <form>
                     
                   <table border="1" width="100%">
                       
@@ -86,12 +86,8 @@
                                 
                                 Product Qty Sell: <input type="number" name="p_qty_sell" id="productQtySell">
                                 
-                                <input type="submit" name="submit" value="sell">
-                                
-                                
-                                
-                                
-                              
+                                <input type="button" name="submit" id="Submit" value="sell" onclick="manageStock()">
+
                           </td>
                           
                       </tr>
@@ -100,7 +96,7 @@
                     
                 </form>
                 
-                
+                <h4 id="response"></h4>
                 
             </td>
             

@@ -7,22 +7,31 @@ session_start();
 
     require_once('../models/clientService.php');
 
-if(isset($_REQUEST['submit'])){
+    $data = $_REQUEST['data'];
+	$json = json_decode($data);
+
+    $submit = $json->submit;
+    $p_id = $json->p_id;
+    $p_qty_sell = $json->p_qty_sell;
+    $p_qty_bought = $json->p_qty_bought;
+    $p_price = $json->p_price;
+
+if(isset($submit)){
     
-    $productId = getStockProductInformation($_REQUEST['p_id']);
+    $productId = getStockProductInformation($p_id);
     
     
-    if(!empty($_REQUEST['p_qty_sell'])){
+    if(!empty($p_qty_sell)){
         
-        if(intval($_REQUEST['p_qty_sell']) <= 0 or intval($_REQUEST['p_qty_sell']) > intval($_REQUEST['p_qty_bought'])){
+        if(intval($p_qty_sell) <= 0 or intval($p_qty_sell) > intval($p_qty_bought)){
             
             echo "invalid selling quantity";
             
         }else{
             
-            $revenue = intval($_REQUEST['p_qty_sell'])*intval($_REQUEST['p_price']);
+            $revenue = intval($p_qty_sell)*intval($p_price);
             
-            if(updateClientStockProduct($_SESSION['username'], $_REQUEST['p_id'], intval($_REQUEST['p_qty_sell']), "sell", $revenue)){
+            if(updateClientStockProduct($_SESSION['username'], $p_id, intval($p_qty_sell), "sell", $revenue)){
                 
                 echo "Transaction successful";
                 
@@ -34,12 +43,8 @@ if(isset($_REQUEST['submit'])){
             
         }
         
-    }else{echo "input is null";}
+    }else{echo "input is empty";}
 }
 
-/*p_id
-p_price
-p_qty_bought
-p_qty_sell*/
 
 ?>

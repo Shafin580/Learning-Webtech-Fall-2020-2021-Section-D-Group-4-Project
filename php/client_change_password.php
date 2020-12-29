@@ -7,17 +7,23 @@
     require_once('../models/clientService.php');
     $userInformation = getUserInformation($_SESSION['username']);
 
-    if(isset($_REQUEST['updatePassword'])){
-        
-        echo "<center><fieldset><legend>Messeges</legend>";
-        
-        if(!empty($_REQUEST['currentPassword']) and !empty($_REQUEST['newPassword']) and !empty($_REQUEST['re-typeNewPassword'])){
+    $data = $_REQUEST['data'];
+	$json = json_decode($data);
+
+    $updatePassword = $json->updatePassword;
+    $currentPassword = $json->currentPassword;
+    $newPassword = $json->newPassword;
+    $re_typeNewPassword = $json->re_typeNewPassword;
+
+    if(isset($updatePassword)){
+
+        if(!empty($currentPassword) and !empty($newPassword) and !empty($re_typeNewPassword)){
             
-            if($_REQUEST['currentPassword'] == $userInformation[0]['c_password']){
+            if($currentPassword == $userInformation[0]['c_password']){
                 
-                if($_REQUEST['newPassword'] == $_REQUEST['re-typeNewPassword']){
+                if($newPassword == $re_typeNewPassword){
                     
-                    if(updateClientPassword($_SESSION['username'], $_REQUEST['newPassword'])){
+                    if(updateClientPassword($_SESSION['username'], $newPassword)){
                         
                         echo "Password Updated Successfully!";
                         
@@ -29,7 +35,7 @@
             
         }else{echo "Missing Information";}
         
-        echo "</fieldset></center>";
+        
         
     }
 

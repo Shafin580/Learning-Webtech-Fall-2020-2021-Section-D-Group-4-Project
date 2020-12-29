@@ -6,16 +6,22 @@
 
 require_once('../models/clientService.php');
 
-if(isset($_REQUEST['submit'])){
+    $data = $_REQUEST['data'];
+	$json = json_decode($data);
+
+    $submit = $json->submit;
+    $productQty = $json->productQty;
+
+if(isset($submit)){
     
-    if(!empty($_REQUEST['productQty'])){
+    if(!empty($productQty)){
         
-        $productQty = intval($_REQUEST['productQty']);
+        $productQty = intval($productQty);
         
-        if($productQty >= 0){
+        if($productQty > 0){
             
-            $productId = $_REQUEST['sp_id'];
-            $productPrice = intval($_REQUEST['sp_price']);
+            $productId = $json->sp_id;
+            $productPrice = intval($json->sp_price);
             $totalPrice = ($productPrice*$productQty);
             
             if(checkClientStockProduct($_SESSION['username'], $productId)){

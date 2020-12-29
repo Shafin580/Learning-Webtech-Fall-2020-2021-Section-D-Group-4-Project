@@ -122,11 +122,31 @@ function getBillingAccount($username){
     $sql = "select * from client_billing_account where username = '$username'";
     
     $result = mysqli_query($conn, $sql);
-    $i = 0;
     while($data = mysqli_fetch_assoc($result)){
         
         echo "<option value=".$data['billing_account_name'].">".$data['billing_account_name']."</option>";
         
+        
+    }
+    
+}
+
+function checkBillingAccount($username, $accountName){
+    
+    $conn = getConnection('localhost', 'root', '', 'e_pocket_system');
+    $sql = "select * from client_billing_account where username = '$username' and billing_account_name = '$accountName'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    
+    if(!empty($row)){
+        
+        return true;
+        
+    }
+    
+    else{
+        
+        return false;
         
     }
     

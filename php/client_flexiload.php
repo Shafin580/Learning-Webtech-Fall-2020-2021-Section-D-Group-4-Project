@@ -7,23 +7,30 @@ session_start();
 
     require_once('../models/clientService.php');
 
-if(isset($_REQUEST['flexiload'])){
+    $data = $_REQUEST['data'];
+	$json = json_decode($data);
+
+    $flexiload = $json->flexiload;
+    $phoneNumber = $json->phoneNumber;
+    $flexiAmount = $json->flexiAmount;
+
+if(isset($flexiload)){
     
-    if(!empty($_REQUEST['phoneNumber']) and !empty($_REQUEST['flexiAmount'])){
+    if(!empty($phoneNumber) and !empty($flexiAmount)){
         
-        if(strlen(strval($_REQUEST['phoneNumber'])) < 11){
+        if(strlen(strval($phoneNumber)) != 11){
             
             echo "Invalid phone number";
             
         }else{
             
-            if(intval($_REQUEST['flexiAmount']) < 50){
+            if(intval($flexiAmount) <= 0){
                 
-                echo "Amount must be atleast 50 bdt";
+                echo "Invalid Amount";
                 
             }else{
                 
-                if(flexiload($_SESSION['username'], "F", strval($_REQUEST['phoneNumber']), intval($_REQUEST['flexiAmount']))){
+                if(flexiload($_SESSION['username'], "F", strval($phoneNumber), intval($flexiAmount))){
                     
                     echo "Flexiload Successful";
                     

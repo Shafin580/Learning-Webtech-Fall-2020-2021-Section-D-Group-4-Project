@@ -64,7 +64,7 @@
             
             <td align="center">
                 
-                <form action="../php/client_stock_products.php" method="post">
+                <form>
                     
                     
                     
@@ -84,9 +84,9 @@
                                 
                                 Product Id: <input type="text" name="sp_id" id="productId" readonly="readonly"><br><br>
                                 Product Price: <input type="text" name="sp_price" id="productPrice" readonly="readonly">Tk/Share<br><br>
-                                Product Quantity: <input type="number" name="productQty"><br><br>
+                                Product Quantity: <input type="number" name="productQty" id="productQuantity"><br><br>
                                 
-                                <input type="submit" name="submit" value="Buy">
+                                <input type="button" name="submit" id="Submit" value="Buy" onclick="buyStockProduct()">
                                 
                                 
                             </td>
@@ -97,7 +97,7 @@
                     
                 </form>
                 
-                
+                <h4 id="response"></h4>
                 
             </td>
             

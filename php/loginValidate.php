@@ -1,7 +1,8 @@
 <?php
 
-
 require_once('../models/databaseConnect.php');
+require_once('../models/clientService.php');
+
 
 if(isset($_REQUEST['submit'])){
     
@@ -13,8 +14,15 @@ if(isset($_REQUEST['submit'])){
             
             if($_SESSION['userType']=="Client"){
                 
-                //header('location: ../view/client_home.php');
-                echo "Valid";
+                $userInformation = getUserInformation($_SESSION['username']);
+                
+                if($userInformation[0]['is_blocked'] == "true"){
+                    
+                    echo "Your account is blocked!";
+                    
+                }else{echo "Client Valid";}
+                
+                
             }
             
         }else{echo "Invalid credentials";}

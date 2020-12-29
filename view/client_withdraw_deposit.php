@@ -68,7 +68,7 @@
 
                 <td align="center">
 
-                    <form action="../php/client_withdraw_deposit.php" method="post">
+                    <form>
 
 
 
@@ -89,14 +89,14 @@
                                             Withdraw To: <select name="accountName">
                                                 <?=getBillingAccount($_SESSION['username'])?>
                                             </select><br><br>
-                                            Amount: <input type="number" name="withdraw_amount"> <br> <br>
+                                            Amount: <input type="number" name="withdraw_amount" id="WithdrawAmount"> <br> <br>
                                             
 
                                         </td>
                                         
                                         <td>
                                             
-                                            <input type="submit" name="withdraw" value="Proceed">
+                                            <input type="button" name="withdraw" id="Withdraw" value="Proceed" onclick="withdrawMoney()">
                                             
                                         </td>
 
@@ -113,14 +113,14 @@
                                             Deposit From: <select name="accountName">
                                                 <?=getBillingAccount($_SESSION['username'])?>
                                             </select><br><br>
-                                            Amount: <input type="number" name="deposit_amount"> <br> <br>
+                                            Amount: <input type="number" name="deposit_amount" id="DepositAmount"> <br> <br>
                                             
 
                                         </td>
                                         
                                         <td>
                                             
-                                            <input type="submit" name="deposit" value="Proceed">
+                                            <input type="button" name="deposit" id="Deposit" value="Proceed" onclick="depositMoney()">
                                             
                                         </td>
 
@@ -137,7 +137,7 @@
 
                     </form>
 
-
+                    <h4 id="response"></h4>
 
                 </td>
 
@@ -146,6 +146,8 @@
         </table>
 
     </center>
+
+<script type="text/javascript" src="../assets/scripts/clientScript.js"></script>
 
 </body>
 

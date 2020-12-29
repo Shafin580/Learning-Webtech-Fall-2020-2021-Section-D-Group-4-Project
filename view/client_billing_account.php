@@ -62,21 +62,21 @@
             
             <td align="center">
                 
-                <form action="../php/client_billing_account.php" method="post">
+                <form>
                     
                     <u><h3>Add Bank/Mobile Bank Accounts</h3></u>
                     
-                    Account Number: <input type="number" placeholder="1234567890" name="accountNo">
-                    <select name="accountName" >
+                    Account Number: <input type="number" placeholder="1234567890" name="accountNo" id="accountNumber">
+                    <select name="accountName" id="AccountName">
 				<option value="Bkash"  selected >Bkash</option>
 				<option value="DBBL">DBBL</option>
 				<option value="Nagad">Nagad</option>
 			</select><br><br>
-                   <input type="submit" name="submit" value="Add"> 
+                   <input type="button" name="submit" id="Submit" value="Add" onclick="addBillingAccount()"> 
                     
                 </form>
                 
-                
+                <h4 id="response"></h4>
                 
             </td>
             
@@ -85,6 +85,8 @@
     </table>
         
     </center>
+    
+    <script type="text/javascript" src="../assets/scripts/clientScript.js"></script>
     
 </body>
 </html>
