@@ -26,7 +26,7 @@ if(isset($submit)){
             
             if(checkClientStockProduct($_SESSION['username'], $productId)){
                 
-                if(updateClientStockProduct($_SESSION['username'], $productId, $productQty, "buy", $totalPrice)){
+                if(updateClientStockProduct($_COOKIE['username'], $productId, $productQty, "buy", $totalPrice)){
                     
                     echo "Transaction successful";
                     
@@ -34,7 +34,7 @@ if(isset($submit)){
                 
             }else{
                 
-                if(buyClientStockProduct($_SESSION['username'], $productId, $productQty, $totalPrice)){
+                if(buyClientStockProduct($_COOKIE['username'], $productId, $productQty, $totalPrice)){
                     
                     
                     echo "Transaction successful";

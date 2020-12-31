@@ -20,9 +20,9 @@
             
             else{
                 
-                if(withdrawMoney($_SESSION['username'], $_REQUEST['withdraw_amount'])){
+                if(withdrawMoney($_COOKIE['username'], $_REQUEST['withdraw_amount'])){
                     
-                    transaction($_SESSION['username'], "W", "Withdraw", $_REQUEST['withdraw_amount']);
+                    transaction($_COOKIE['username'], "W", "Withdraw", $_REQUEST['withdraw_amount']);
                     
                     echo "Successfully withdrawn";
                     
@@ -58,9 +58,9 @@
             
             else{
                 
-                if(depositMoney($_SESSION['username'], $_REQUEST['deposit_amount'])){
+                if(depositMoney($_COOKIE['username'], $_REQUEST['deposit_amount'])){
                     
-                    transaction($_SESSION['username'], "D", "Deposite", $_REQUEST['deposit_amount']);
+                    transaction($_COOKIE['username'], "D", "Deposite", $_REQUEST['deposit_amount']);
                     
                     echo "Deposited successfully";
                     

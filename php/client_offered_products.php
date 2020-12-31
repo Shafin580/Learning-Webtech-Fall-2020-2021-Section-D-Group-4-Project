@@ -16,11 +16,11 @@ if(isset($_REQUEST['submit'])){
         
         $productPrice = $productPrice - 50;
         
-        if(voucher($_SESSION['username'])==false)
+        if(voucher($_COOKIE['username'])==false)
         {echo "You don't have any voucher";
         $productPrice = intval($_REQUEST['p_price']);}
         
-        if(buyOfferedProduct($_SESSION['username'], $productId, $productPrice)){
+        if(buyOfferedProduct($_COOKIE['username'], $productId, $productPrice)){
 
             echo "Transaction Successful";
             
@@ -33,7 +33,7 @@ if(isset($_REQUEST['submit'])){
     }else{
         
     
-        if(buyOfferedProduct($_SESSION['username'], $productId, $productPrice)){
+        if(buyOfferedProduct($_COOKIE['username'], $productId, $productPrice)){
 
             echo "Transaction Successful";
             

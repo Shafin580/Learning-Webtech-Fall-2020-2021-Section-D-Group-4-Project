@@ -4,8 +4,10 @@
 		header('location: ../index.php');
 	}
 
+    
+
     require_once('../models/clientService.php');
-    $userInformation = getUserInformation($_SESSION['username']);
+    $userInformation = getUserInformation($_COOKIE['username']);
 
     
 

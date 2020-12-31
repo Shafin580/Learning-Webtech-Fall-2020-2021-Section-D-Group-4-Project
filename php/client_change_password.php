@@ -5,7 +5,7 @@
 	}
 
     require_once('../models/clientService.php');
-    $userInformation = getUserInformation($_SESSION['username']);
+    $userInformation = getUserInformation($_COOKIE['username']);
 
     $data = $_REQUEST['data'];
 	$json = json_decode($data);
@@ -23,7 +23,7 @@
                 
                 if($newPassword == $re_typeNewPassword){
                     
-                    if(updateClientPassword($_SESSION['username'], $newPassword)){
+                    if(updateClientPassword($_COOKIE['username'], $newPassword)){
                         
                         echo "Password Updated Successfully!";
                         

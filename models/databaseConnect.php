@@ -23,6 +23,7 @@ function userValidate($username, $password){
             session_start();
             $_SESSION['userType'] = $row['user_type'];
             $_SESSION['username'] = $row['username'];
+            setcookie("username", $row['username'], time()+600, '/');
             return true;
             
         }

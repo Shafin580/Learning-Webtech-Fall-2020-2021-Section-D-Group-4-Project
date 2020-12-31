@@ -11,11 +11,11 @@
         $package = "Basic";
         $price = 0;
         
-        if(checkClientPackage($_SESSION['username'], $package)==false){
+        if(checkClientPackage($_COOKIE['username'], $package)==false){
             
-            if(buyClientPackage($_SESSION['username'], $package, $price)){
+            if(buyClientPackage($_COOKIE['username'], $package, $price)){
                 
-                transaction($_SESSION['username'], "P-Basic", "Basic Package", $price);
+                transaction($_COOKIE['username'], "P-Basic", "Basic Package", $price);
                 echo "Package upgraded";
                 
             }else{echo "Failed to upgrade";}
@@ -29,11 +29,11 @@
         $package = "Pro";
         $price = 500;
         
-        if(checkClientPackage($_SESSION['username'], $package)==false){
+        if(checkClientPackage($_COOKIE['username'], $package)==false){
             
-            if(buyClientPackage($_SESSION['username'], $package, $price)){
+            if(buyClientPackage($_COOKIE['username'], $package, $price)){
                 
-                transaction($_SESSION['username'], "P-Pro", "Pro Package", $price);
+                transaction($_COOKIE['username'], "P-Pro", "Pro Package", $price);
                 echo "Package upgraded";
                 
             }else{echo "Failed to upgrade";}
@@ -47,11 +47,11 @@
         $package = "Ultimate";
         $price = 1000;
         
-        if(checkClientPackage($_SESSION['username'], $package)==false){
+        if(checkClientPackage($_COOKIE['username'], $package)==false){
             
-            if(buyClientPackage($_SESSION['username'], $package, $price)){
+            if(buyClientPackage($_COOKIE['username'], $package, $price)){
                 
-                transaction($_SESSION['username'], "P-Ultimate", "Ultimate Package", $price);
+                transaction($_COOKIE['username'], "P-Ultimate", "Ultimate Package", $price);
                 echo "Package upgraded";
                 
             }else{echo "Failed to upgrade";}

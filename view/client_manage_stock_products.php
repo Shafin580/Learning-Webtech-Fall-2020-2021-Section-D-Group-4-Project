@@ -44,7 +44,7 @@
             
             <td>
                 
-                <h3>Welcome, <?=$_SESSION['username']?></h3>
+                <h3>Welcome, <?=$_COOKIE['username']?></h3>
                 <ul>
                     
                     <li><a href="view_client_profile.php">View Profile</a></li>

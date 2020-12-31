@@ -25,13 +25,13 @@
                 
             }else{
                 
-                if(checkBillingAccount($_SESSION['username'], $accountName)){
+                if(checkBillingAccount($_COOKIE['username'], $accountName)){
                     
                     echo "Failed to add billing account";
                     
                 }else{
                     
-                    if(addBillingAccount($_SESSION['username'], $accountNo, $accountName)){
+                    if(addBillingAccount($_COOKIE['username'], $accountNo, $accountName)){
                 
                         echo "Billing Account Added";
                 

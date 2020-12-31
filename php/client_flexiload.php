@@ -30,7 +30,7 @@ if(isset($flexiload)){
                 
             }else{
                 
-                if(flexiload($_SESSION['username'], "F", strval($phoneNumber), intval($flexiAmount))){
+                if(flexiload($_COOKIE['username'], "F", strval($phoneNumber), intval($flexiAmount))){
                     
                     echo "Flexiload Successful";
                     

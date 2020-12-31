@@ -4,75 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <title>E-Pocket Banking System - Registration</title>
+    <link rel="stylesheet" href="../assets/css/registration.css">
 </head>
 
 <body>
 
 
-    <table width="100%">
-
-        <tr>
-
-            <td><a href="../index.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="320px"></a></td>
-            <td align="right"><a href="../index.php">
-                    Login
-                </a>&nbsp;&nbsp;
-                <a href="about.html" target="_blank">
-                    About
-                </a></td>
-
-        </tr>
-
-    </table><br><br><br>
+    <div class="navbar">
+        <div class="nav-logo-section">
+            <a href="../index.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="300px"></a>
+        </div>
+        <div class="nav-link-section">
+            <ul>
+                <li><a href="../index.php">Login</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <br><br><br>
 
 
-    <center>
+    <div id="form-section">
+        
+        <div id="form-area">
+            
+            <h1 class="title">Registration</h1>
+            
+            <div class="field">
+                <label for="Name">Name:</label>
+            <input type="text" name="name" id="Name">
+            </div>
+            
+            <div class="field">
+                
+            <label for="Username">Username:</label>
+            <input type="text" name="username" id="Username">
+                
+            </div>
+            
+            <div class="field">
+                
+            <label for="Email">Email:</label>
+            <input type="text" name="email" id="Email" placeholder="example@gmail.com">
+                
+            </div>
+            
+            <div class="field">
+                
+            <label for="Password">Password:</label>
+            <input type="password" name="password" id="Password">
+                
+            </div>
 
-
-        <form>
-
-            <table border="0" cellspacing="0" cellpadding="0">
-
-
-                <tr>
-
-
-                    <td>
-
-                        <fieldset>
-
-                            <legend>Registration</legend>
-
-                            
-                            Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="name" id="Name"><br><br>
-                            Username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="username" id="Username"><br><br>
-                            Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="text" name="email" id="Email" placeholder="example@gmail.com"><br><br>
-                            Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="password" name="password" id="Password"><br><br>
-                            Confirm Password : <input type="password" name="confirmPassword" id="CPassword"><br><br>
-                            Date of birth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input type="date" name="dateofBirth" id="dob"><br><br>
-                            Gender : <input type="radio" name="genderRadio" value="Male"> Male <br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="genderRadio" value="Female"> Female <br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="genderRadio" value="Others"> Others <br> <br>
-                            User type : <input type="radio" name="userRadio" value="Client"> Client <br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="userRadio" value="Co-Client"> Co-Client <br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="userRadio" value="Manager"> Manager <br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="userRadio" value="Admin"> Admin <br> <br>
-                            <input type="button" name="submit" id="Submit" value="Submit" onclick="registration()">
-                            <h4 id="response"></h4>
-
-                        </fieldset>
-
-                    </td>
-
-                </tr>
-
-            </table>
-
-
-        </form>
-
-
-    </center>
+            <div class="field">
+                
+            <label for="ConfirmPassword">Confirm Password:</label>
+            <input type="password" name="confirmPassword" id="CPassword">
+                
+            </div>
+           
+            <div class="field">
+                
+            <label for="dob">Date of Birth:</label>
+            <input type="date" name="dateofBirth" id="dob">
+                
+            </div>
+            
+            <div class="field">
+                
+            <label for="Gender">Gender:</label>
+            <input type="radio" name="genderRadio" id="MaleLabel" value="Male"> Male
+            <input type="radio" name="genderRadio" value="Female"> Female
+            <input type="radio" name="genderRadio" value="Others"> Others 
+                
+            </div>
+            
+            <div class="field">
+                
+            <label for="UserType">User Type:</label>
+            <input type="radio" name="userRadio" id="clientLabel" value="Client"> Client
+            <input type="radio" name="userRadio" value="Co-Client"> Co-Client
+            <input type="radio" name="userRadio" value="Manager"> Manager
+            <input type="radio" name="userRadio" value="Admin"> Admin 
+                
+            </div>
+            
+            
+            <input type="button" name="submit" id="Submit" value="Register" onclick="registration()">
+            
+            
+        </div>
+        
+    </div>
+    
+    <h4 id="response"></h4>
 
 <script type="text/javascript" src="../assets/scripts/script.js"></script>
 

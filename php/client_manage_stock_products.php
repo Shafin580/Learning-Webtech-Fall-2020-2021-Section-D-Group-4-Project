@@ -31,7 +31,7 @@ if(isset($submit)){
             
             $revenue = intval($p_qty_sell)*intval($p_price);
             
-            if(updateClientStockProduct($_SESSION['username'], $p_id, intval($p_qty_sell), "sell", $revenue)){
+            if(updateClientStockProduct($_COOKIE['username'], $p_id, intval($p_qty_sell), "sell", $revenue)){
                 
                 echo "Transaction successful";
                 

@@ -193,7 +193,6 @@ function registration(){
                                     
                                     var result = this.responseText;
                                     result = result.fontcolor("green");
-                                    
                                     document.querySelector("#response").innerHTML = result;
                                     
                                 }

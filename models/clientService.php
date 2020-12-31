@@ -315,7 +315,7 @@ function transaction($username, $productId, $productItem, $price, $stockAction =
     
     if($stockAction == "null"){
         
-        if($productId=="D" or $productId=="F"){
+        if($productId=="D" or $productId=="F" or $productId=="W" or $productId=="P-Basic" or $productId=="P-Pro" or $productId=="P-Ultimate"){
         
         $sql = "insert into transaction (username, product_id, product_item, price, status) values ('$username', '$productId', '$productItem', '$price', 'Clear')";
         
@@ -694,11 +694,11 @@ function getClientStockProductInformation($username){
     while($Data = mysqli_fetch_assoc($result)){
         
             echo "<option value=".$Data['sp_id']."|".$Data['sp_price']."|".$Data['sp_bought_qty'].">".$Data['sp_name']."</option>";
+
   
     }
     
 }
-
 
 
 
