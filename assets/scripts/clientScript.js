@@ -566,7 +566,15 @@ function buyOfferedProduct(){
     
     if(checked[0].checked){
         
-         checkbox = document.querySelector("#Checkbox").value;
+        if(p_id === "" || p_price === ""){
+            
+            var result = "Please select a product";
+            result = result.fontcolor("red");      
+            document.querySelector("#response").innerHTML = result;
+            
+        } else {
+            
+            checkbox = document.querySelector("#Checkbox").value;
         
         var xhttp = new XMLHttpRequest();
 	    xhttp.open('POST', '../php/client_offered_products.php', true);
@@ -594,10 +602,22 @@ function buyOfferedProduct(){
 	                       }
  
             xhttp.send('p_id='+p_id+'&p_price='+p_price+'&checkbox='+checkbox+'&submit='+submit);
+            
+        } 
+        
+         
         
     }else{
         
-         var xhttp = new XMLHttpRequest();
+        if(p_id === "" || p_price === ""){
+            
+            var result = "Please select a product";
+            result = result.fontcolor("red");      
+            document.querySelector("#response").innerHTML = result;
+            
+        }else{
+            
+            var xhttp = new XMLHttpRequest();
 	    xhttp.open('POST', '../php/client_offered_products.php', true);
 	    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         
@@ -623,6 +643,10 @@ function buyOfferedProduct(){
 	                       }
  
             xhttp.send('p_id='+p_id+'&p_price='+p_price+'&submit='+submit);
+            
+        }
+        
+         
         
     }
     

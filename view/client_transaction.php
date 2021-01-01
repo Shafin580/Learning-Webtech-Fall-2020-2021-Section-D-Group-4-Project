@@ -66,7 +66,7 @@
                 
                 
                     
-                    <table border="1" width="100%">
+                    <table class="transaction">
                         
                         <tr><th colspan="7">Transaction History</th></tr>
                         <tr><th>Transaction No</th>
