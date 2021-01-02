@@ -4,6 +4,12 @@
 		header('location: ../index.php');
 	}
 
+    if(!isset($_COOKIE['username'])){
+        
+        session_destroy();
+        header('location: ../index.php');
+    }
+
     require_once('../models/clientService.php');
     
 ?>

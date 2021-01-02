@@ -26,7 +26,27 @@ function userValidate(){
                 
                 window.location.href = "view/client_home.php";
                 
-            }else{document.querySelector("#response").innerHTML = this.responseText;}
+            }
+            
+            else if(this.responseText == "Admin Valid"){
+                
+                window.location.href = "view/admin_home.php";
+                
+            }
+            
+            else if(this.responseText == "Manager Valid"){
+                
+                window.location.href = "view/manager_home.php";
+                
+            }
+            
+            else if(this.responseText == "Co-Client Valid"){
+                
+                window.location.href = "view/promotion_details.php";
+                
+            }
+            
+            else{document.querySelector("#response").innerHTML = this.responseText;}
             
 	    	
 	    }

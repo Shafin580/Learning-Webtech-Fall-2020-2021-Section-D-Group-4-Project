@@ -23,7 +23,37 @@ function userValidate($username, $password){
             session_start();
             $_SESSION['userType'] = $row['user_type'];
             $_SESSION['username'] = $row['username'];
+            setcookie("username", $row['username'], time()+2000, '/');
+            return true;
+            
+        }
+        
+        elseif($row['user_type']=="Manager"){
+            
+            session_start();
+            $_SESSION['userType'] = $row['user_type'];
+            $_SESSION['username'] = $row['username'];
+            setcookie("userName", $row['username'], time()+2000, '/');
+            return true;
+            
+        }
+        
+        elseif($row['user_type']=="Admin")
+        {
+            
+            session_start();
+            $_SESSION['userType'] = $row['user_type'];
+            $_SESSION['username'] = $row['username'];
             setcookie("username", $row['username'], time()+1000, '/');
+            return true;
+            
+        }
+        elseif($row['user_type']=="Co-Client"){
+            
+            session_start();
+            $_SESSION['userType'] = $row['user_type'];
+            $_SESSION['username'] = $row['username'];
+            setcookie("username", $row['username'], time()+600, '/');
             return true;
             
         }

@@ -2,6 +2,7 @@
 
 require_once('../models/databaseConnect.php');
 require_once('../models/clientService.php');
+require_once('../models/managerService.php');
 
 
 if(isset($_REQUEST['submit'])){
@@ -23,6 +24,43 @@ if(isset($_REQUEST['submit'])){
                 }else{echo "Client Valid";}
                 
                 
+            }
+            
+            elseif($_SESSION['userType']=="Admin")
+                {
+                    
+                    echo "Admin Valid";
+                    
+                }
+
+                elseif($_SESSION['userType']=="Manager")
+                {
+                    
+                    $managerInformation = getUserssInformation($_REQUEST['username']);
+                    
+                    if($managerInformation[0]['is_approved'] == "false")
+                    {
+                        
+                        echo "Your account is not approved!";
+                        
+                    }
+                    elseif($managerInformation[0]['is_blocked'] == "true")
+                    {
+                        
+                        echo "Your account is blocked!";
+                        
+                    }
+                    else
+                    {
+    
+                        echo "Manager Valid";                   
+                    
+                    }
+                
+                }
+            elseif($_SESSION['userType']=="Co-Client"){
+                
+                echo "Co-Client Valid";
             }
             
         }else{echo "Invalid credentials";}

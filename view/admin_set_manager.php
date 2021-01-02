@@ -1,9 +1,12 @@
 <?php
-    if(!isset($_COOKIE['admin']))
-    {
+	session_start();
+	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
-  
+
+    require_once('../models/adminService.php');
+    $userInformation = getUsersInformation($_SESSION['username']);
+
 ?>
 
 
@@ -12,77 +15,57 @@
 <head>
     <meta charset="UTF-8">
     <title>E-Pocket Banking System - Admin - Home</title>
+    <link rel="stylesheet" href="../assets/css/admin/style.css">
 </head>
 <body>
     
-    <table width="100%">
+     <!-- Navbar -->
+     <ul class="navbar">
+        <li class="navbar-list">
+            <a href="admin_home.php"><img src="../assets/gallery/logo.jpg" alt="Logo" class="logo"></a>
+        </li>
+        <li class="navbar-list right">
+            <a href="../php/logout.php">Logout</a>
+        </li>
+        <li class="navbar-list right">
+            <a href="about.html" target="_blank">About</a>
+        </li>
+    </ul>
+    <!-- Navbar end -->
 
-            <tr>
-
-                <td><a href="admin_home.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="320px"></a></td>
-                <td align="right"><a href="../php/logout.php">
-                        Logout
-                    </a>&nbsp;&nbsp;
-                    <a href="about.html" target="_blank">
-                        About
-                    </a></td>
-
-            </tr>
-
-    </table><br><br><br>
+    <!-- Sidebar -->
+    <ul class="sidebar" >
+        <li class="sidebar-list"><a href="admin_home.php">Home</a></li>
+        <li class="sidebar-list"><a class="active" href="admin_set_manager.php">Set Manager</a></li>
+        <li class="sidebar-list"><a href="admin_set_client.php">Set Client</a></li>
+        <li class="sidebar-list"><a href="admin_edit_clientInfo.php">Edit Client info</a></li>
+        <li class="sidebar-list"><a href="admin_upgrade_package.php">Upgrade Package</a></li>
+        <li class="sidebar-list"><a href="admin_check_clientInfo.php">Check Client info</a></li>
+        <li class="sidebar-list"><a href="admin_limit_voucher.php">Limit Voucher</a></li>
+        <li class="sidebar-list"><a href="admin_create_notice.php">Create Notice</a></li>
+    </ul>
+    <!-- Sidebar end -->
     
-    <center>
-        
-        <u><h1>E-Pocket Banking System</h1></u>
-        
-        <table cellspacing="0" border="1" width="1200px" height="350px">
-        
-        <tr>
-            
-                <td valign="top" width="200px">
-                    
-                    <h3>Welcome, Mashrur</h3>
-                    
-                        <ul>
-                            
-                            <li><a href="admin_home.php">Home</a></li>
-                            <li><a href="admin_set_manager.php">Set Manager</a></li>
-                            <li><a href="admin_set_client.php">Set Client</a></li>
-                            <li><a href="admin_edit_clientInfo.php">Edit Client info</a></li>
-                            <li><a href="admin_upgrade_package.php">Upgrade Package</a></li>
-                            <li><a href="admin_check_clientInfo.php">Check Client info</a></li>
-                            <li><a href="admin_limit_voucher.php">Limit Voucher</a></li>
-                            <li><a href="admin_create_notice.php">Create Notice</a></li>
-                            
-                        </ul>
-                    
-                </td>
-            
-                <td valign="top">
-                    
-                    <p><b>Current manager:</b>
-                    <ul>Rabby Hossain</ul></p>
-                    <input align="left" type="button" name="block" value="Block">
-                    <p><b>Waiting for approval:</b>
-                    <li>Ali hossain</li>
-                    <input align="left" type="button" name="Approve" value="Approve">
-                    <input align="left" type="button" name="Decline" value="Decline">
-                    <li>Rafi Haque</li>
-                    <input align="left" type="button" name="Approve" value="Approve">
-                    <input align="left" type="button" name="Decline" value="Decline">
-                    <li>Masud Hasan</li>
-                    <input align="left" type="button" name="Approve" value="Approve">
-                    <input align="left" type="button" name="Decline" value="Decline">
-                    
-                    
-                    
-                </td>
-            
-        </tr>
-        
-    </table>
-        
-    </center>
+    <!-- container -->
+    <div class="container">
+        <p class="table-header">Manager Set</p>      
+        <table border="1" width="100%" id="table">
+            <th>Manager id</th>
+            <th>Manager name</th>
+            <th>Block</th>
+            <th>Unblock</th>
+                <?php getManagername(); ?>             
+        </table><br> <br> 
+        <p class="table-header">Manager Approval</p>
+        <table border="1" width="100%" id="table">                                        
+            <th>Manager id</th>
+            <th>Manager name</th>
+            <th>Approve</th>
+            <th>Decline</th>                                          
+                <?php showApprovalManagerInfo(); ?>                       
+        </table>           
+    </div>
+    <!-- container end -->
     
 </body>
 </html>

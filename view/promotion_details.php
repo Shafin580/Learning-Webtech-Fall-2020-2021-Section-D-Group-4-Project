@@ -1,8 +1,10 @@
 <?php
-	if(!isset($_COOKIE['co-client'])){
+	session_start();
+	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
-
+   require_once('../models/co_clientService.php');
+   $userInformation = GetUserInformations($_SESSION['username']);
     
 
 ?>
@@ -13,15 +15,19 @@
 <head>
     <meta>
     <title>E-Pocket Banking System - Co-Client - Promotional Details</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/co-client/promotion_detailsss.css" />
 </head>
 <body>
+
+<div id="container">
+  
     
     <table width="100%">
 
         <tr>
 
-            <td><a href="co-client_home.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="320px"></a></td>
-            <td align="right"><a href="../php/logout.php">
+            <td><a href="co_client_home.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="420px"></a></td>
+            <td align="right"><a class="selected"  href="../php/logout.php">
                     Logout
                 </a>&nbsp;&nbsp;
                 <a href="about.html" target="_blank">
@@ -29,24 +35,34 @@
                 </a></td>
 
         </tr>
+      
 
     </table><br><br><br>
     
     <center>
+ 
+    <div id="header">
+    
+		
         
-        <u><h1>E-Pocket Banking System</h1></u>
         
-        <table border="1" width="40%">
+        
+      </div>
+        <table border="1" width="60%">
+        
+        
         
         <tr>
             
             <td>
-                
-                <h3>Welcome, Talukder</h3>
+            
+                <h3>Welcome,<?=$_COOKIE['username']?></h3>
                 <ul>
+           
                     
-                    <li><a href="promotion_details.php">All Promotions Details</a></li>
-                    <li><a href="set_or_delete_product.php">Set or Delete Product</a></li>
+                <li><a href="promotion_details.php">All Promotions Details</a></li>
+                    <li><a href="add_product.php">Add Product</a></li>
+                    <li><a href="co_client delete.php">Delete Promotion</a></li>
                     <li><a href="set_number.php">Set The Number of product</a></li>
                     <li><a href="stop_promotion.php">Stop Promotion</a></li>
                     <li><a href="highlight_a_promotion.php">Highlight a Promotion</a></li>
@@ -56,25 +72,31 @@
                     <li><a href="promotional_notice.php">Promotional Notice</a></li>
                     <li><a href="time_limit.php">Set a Time Limit</a></li>
                     
+
                 </ul>
                 
             </td>
             
+            
             <td align="center">
+                <div id="main">
                 
-                <p>Total Promotion :5</p>
-                <p>Active Promotions: 2</p>
-                <p>Hided Promotions : 1</p>
-                <p>Highlight Products : 0</p>
-                <p>Deleted Promotions : 2</p>
+            <p>Total Promotion : <?=$userInformation[0]['t_promotion']?> </p>
+                <p>Active Promotions: <?=$userInformation[0]['a_promotion']?> </p>
+                <p>Hided Promotions : <?=$userInformation[0]['h_promotion']?> </p>
+                <p>Highlight Products : <?=$userInformation[0]['h_products']?> </p>
+                <p>Deleted Promotions : <?=$userInformation[0]['del_promotion']?> </p>
                 
             </td>
-            
+           </div>
         </tr>
         
     </table>
-        
+ 
     </center>
-    
+    <div id="footer">
+
+    </div>
+</div>
 </body>
 </html>

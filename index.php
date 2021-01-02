@@ -12,7 +12,7 @@
 
     <div class="navbar">
         <div class="nav-logo-section">
-            <a href="#"><img src="assets/gallery/logo.jpg" alt="Logo" width="300px"></a>
+            <a href="index.php"><img src="assets/gallery/logo.jpg" alt="Logo" width="300px"></a>
         </div>
         <div class="nav-link-section">
             <ul>

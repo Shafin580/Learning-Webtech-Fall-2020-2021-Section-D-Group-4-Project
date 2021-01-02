@@ -1,8 +1,10 @@
 <?php
-    if(!isset($_COOKIE['co-client'])){
-        header('location: ../index.php');
-    }
-
+	session_start();
+	if(!isset($_SESSION['username'])){
+		header('location: ../index.php');
+	}
+   require_once('../models/co_clientService.php');
+   $userInformation = GetUserInformations($_SESSION['username']);
     
 
 ?>
@@ -13,15 +15,16 @@
 <head>
     <meta>
     <title>E-Pocket Banking System - Co-Client - Set Number</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/co-client/set_num.css" />
 </head>
 <body>
-    
+<div id="container">
     <table width="100%">
 
         <tr>
 
-            <td><a href="co-client_home.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="320px"></a></td>
-            <td align="right"><a href="../php/logout.php">
+            <td><a href="co_client_home.php"><img src="../assets/gallery/logo.jpg" alt="Logo" width="420px"></a></td>
+            <td align="right"><a class="selected" href="../php/logout.php">
                     Logout
                 </a>&nbsp;&nbsp;
                 <a href="about.html" target="_blank">
@@ -33,20 +36,23 @@
     </table><br><br><br>
     
     <center>
+    <div id="header">
+
+
+      </div>
         
-        <u><h1>E-Pocket Banking System</h1></u>
-        
-        <table border="1" width="40%">
-        
+      <table border="1" width="60%">
         <tr>
             
             <td>
+            
                 
-                <h3>Welcome, Talukder</h3>
+                <h3>Welcome,<?=$_COOKIE['username']?></h3>
                 <ul>
                     
-                     <li><a href="promotion_details.php">All Promotions Details</a></li>
-                    <li><a href="set_or_delete_product.php">Set or Delete Product</a></li>
+                <li><a href="promotion_details.php">All Promotions Details</a></li>
+                    <li><a href="add_product.php">Add Product</a></li>
+                    <li><a href="co_client delete.php">Delete Promotion</a></li>
                     <li><a href="set_number.php">Set The Number of product</a></li>
                     <li><a href="stop_promotion.php">Stop Promotion</a></li>
                     <li><a href="highlight_a_promotion.php">Highlight a Promotion</a></li>
@@ -55,39 +61,58 @@
                     <li><a href="resize_promotion.php">Resize Promotion</a></li>
                     <li><a href="promotional_notice.php">Promotional Notice</a></li>
                     <li><a href="time_limit.php">Set a Time Limit</a></li>
-
+                    
                     
                 </ul>
                 
             </td>
+         
             
             <td align="center">
+               <div id="main">
                 
-                <form action="">
+                <form action="../php/co_client limit.php" method="post">
                     
-                    <u><h3>Set Highest Number of Products Could be Add for Promotion</h3></u>
+                    <table class="content-table" border="1" width="100%">
 
-                     Number: <input type="Number" name="Number">
-                     <br><br>
+                            
+                         <thead>
+                               
 
-                      Select Category:
-
-                <select name="product" >
-                <option value="" selected>Mobile</option>    
-                <option value=""   >Clothes</option>
-                <option value="">Electronic</option>
-                <option value="">Shoe</option>
-                <option value="">Vehicle</option>
-                <option value="">Other</option>
-            </select>
-            <br><br>
+                                    <tr>
+                                        <th>Product Adding Limitation</th>
+                                    </tr>
+                                </thead> 
+                                 
+                               <tbody>
+                               <tr height="200px">
+                                  <td height="150px">     
+                    
+                                  Number: <input type="Number" name="number"><br></br> 
                 
-               
-                    
-                  
-                  
-                   <input type="submit" name="submit" value="Add"> 
-                    
+
+                                 Product Category:
+
+                                 <select class="buttonn"  name="c_cat" >
+                <option value="Mobile" selected>Mobile</option>    
+                <option value="Clothes"   >Clothes</option>
+                <option value="Electronic">Electronic</option>
+                <option value="Shoe">Shoe</option>
+                <option value="Vehicle">Vehicle</option>
+                <option value="Other">Other</option>
+              
+                
+                
+                
+            </select> <br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="button" type="submit" name="submit" value="Add"> 
+                
+                   
+         </div>
+
                 </form>
             
         </tr>
@@ -95,6 +120,8 @@
     </table>
         
     </center>
+
+</div>
     
 </body>
 </html>

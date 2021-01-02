@@ -1,6 +1,9 @@
 <?php
 
 require_once('../models/clientService.php');
+require_once('../models/managerService.php');
+require_once('../models/adminService.php');
+require_once('../models/co_clientService.php');
 
 
 if(isset($_REQUEST['submit'])){
@@ -40,6 +43,50 @@ if(isset($_REQUEST['submit'])){
                         if(userRegistration($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['userRadio'])){
                             
                             if(clientRegistration($_REQUEST['name'], $_REQUEST['password'], $_REQUEST['username'], $_REQUEST['email'], $_REQUEST['genderRadio'], $_REQUEST['dateofBirth'])){
+                                
+                                echo "Registration Completed!";
+                                
+                            }else{echo "Registration Failed";}
+                            
+                        }else{echo "Username Taken";}
+                        
+                    }
+                        
+                        elseif($_REQUEST['userRadio']=="Manager"){
+                        
+                        if(userRegistration($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['userRadio'])){
+                            
+                            if(managerRegistration($_REQUEST['name'], $_REQUEST['password'], $_REQUEST['username'], $_REQUEST['email'], $_REQUEST['genderRadio'], $_REQUEST['dateofBirth'])){
+                                
+                                echo "Registration Completed!";
+                                
+                            }else{echo "Registration Failed";}
+                            
+                        }else{echo "Username Taken";}
+                        
+                    }
+                        
+                        elseif($_REQUEST['userRadio']=="Admin") 
+                    {
+                        if(userRegistration($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['userRadio']))
+                        {
+                            
+                            if(adminRegistration($_REQUEST['name'], $_REQUEST['password'], $_REQUEST['username'], $_REQUEST['email'], $_REQUEST['genderRadio'], $_REQUEST['dateofBirth']))
+                            {
+                                echo "Registration Completed!";    
+                            }
+                            else
+                            {
+                                echo "Registration Failed";
+                            }
+                        }else{echo "Username Taken";}    
+                    }
+                        
+                        elseif($_REQUEST['userRadio']=="Co-Client"){
+                        
+                        if(userRegistration($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['userRadio'])){
+                            
+                            if(co_clientRegistration($_REQUEST['name'], $_REQUEST['password'], $_REQUEST['username'], $_REQUEST['email'], $_REQUEST['genderRadio'], $_REQUEST['dateofBirth'])){
                                 
                                 echo "Registration Completed!";
                                 

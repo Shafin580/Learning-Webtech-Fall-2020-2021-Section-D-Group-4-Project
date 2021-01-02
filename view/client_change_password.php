@@ -3,6 +3,11 @@
 	if(!isset($_SESSION['username'])){
 		header('location: ../index.php');
 	}
+    if(!isset($_COOKIE['username'])){
+        
+        session_destroy();
+        header('location: ../index.php');
+    }
 
 
 ?>
